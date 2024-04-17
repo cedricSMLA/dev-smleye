@@ -38,8 +38,8 @@ const Nav = () => {
         </Link>
       </h1>
       <ul>
-        <li>
-          <Link to="/">1. Qui suis-je</Link>
+      <li>
+          <Link to="/">Accueil</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
@@ -47,15 +47,23 @@ const Nav = () => {
           />
         </li>
         <li>
-          <Link to="/work">2. Portfolio</Link>
+          <Link to="/quisuisje">Qui suis-je</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
-            animate={{ width: pathname === "/work" ? "50%" : "0%" }}
+            animate={{ width: pathname === "/quisuisje" ? "50%" : "0%" }}
           />
         </li>
         <li>
-          <Link to="/contact">3. Contact</Link>
+          <Link to="/portfolio">Portfolio</Link>
+          <Line
+            transition={{ duration: 0.75 }}
+            initial={{ width: "0%" }}
+            animate={{ width: pathname === "/portfolio" ? "50%" : "0%" }}
+          />
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
