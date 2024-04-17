@@ -2,9 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 //Page Components
 import Carrousel from '../components/Carrousel';
+//Animations
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
 
 const Accueil = () => {
   return (
+    <motion.div
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+    >
     <PageWrapper>
       <Title>Page d'Accueil</Title>
         <CarrouselWrapper>
@@ -15,6 +24,7 @@ const Accueil = () => {
         </CarrouselContainer>
         </CarrouselWrapper>  
     </PageWrapper>
+    </motion.div>
   );
 };
 

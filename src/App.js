@@ -26,8 +26,8 @@ function App() {
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
-        <Route path="/" exact>
-            <Accueil />
+          <Route path="/" exact>
+              <Accueil />
           </Route>
           <Route path="/quisuisje" exact>
             <Quisuisje />
