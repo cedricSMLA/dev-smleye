@@ -10,12 +10,12 @@ const Nav = () => {
     <StyledNav>
       <h1>
         <Link id="logo" to="/">
-          ta_photo_ici_batard
+          S ML E Y E
         </Link>
       </h1>
       <ul>
         <li>
-          <Link to="/">1. About Us</Link>
+          <Link to="/">1. Qui suis-je</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
@@ -23,7 +23,7 @@ const Nav = () => {
           />
         </li>
         <li>
-          <Link to="/work">2. Our Work</Link>
+          <Link to="/work">2. Portfolio</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
@@ -31,7 +31,7 @@ const Nav = () => {
           />
         </li>
         <li>
-          <Link to="/contact">3. Contact Us</Link>
+          <Link to="/contact">3. Contact</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
@@ -62,10 +62,14 @@ const StyledNav = styled.nav`
     display: flex;
     list-style: none;
   }
+  h1 {
+    
+  }
   #logo {
     font-size: 1.5rem;
-    font-family: "Lobster", cursive;
+    font-family: "Amsterdam Signature", cursive;
     font-weight: lighter;
+    margin-left: 200px
   }
   li {
     padding-left: 10rem;
