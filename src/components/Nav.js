@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,8 +6,32 @@ import { useLocation } from "react-router-dom";
 
 const Nav = () => {
   const { pathname } = useLocation();
+  const [hideOnScroll, setHideOnScroll] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+
+      if (window.scrollY > 50) {
+        setHideOnScroll(true);
+      } else {
+        setHideOnScroll(false);
+      }
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (window.pageYOffset / totalHeight) * 100;
+      setScrollProgress(progress);
+
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <StyledNav>
+    <StyledNav style={{ top: hideOnScroll ? '-100%' : '0' }}>
+      <ProgressBar style={{ width: `${scrollProgress}%` }} />
       <h1>
         <Link id="logo" to="/">
           S ML E Y E
@@ -50,10 +74,11 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
-  background: #282828;
+  background: transparent;
   position: sticky;
   top: 0;
   z-index: 10;
+  transition: top 0.3s ease-in-out;
   a {
     color: white;
     text-decoration: none;
@@ -103,6 +128,16 @@ const Line = styled(motion.div)`
   @media (max-width: 1300px) {
     left: 0%;
   }
+`;
+
+const ProgressBar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #23d997;
+  z-index: 20;
+  transition: width 0.2s ease-in-out;
 `;
 
 export default Nav;
