@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { pageAnimation, titleAnim } from "../animation";
 import styled from "styled-components";
 
+import Card from "../components/Card";
+
 const Contact = () => {
   return (
     <ContactStyle
@@ -38,13 +40,7 @@ const Contact = () => {
           </Social>
         </Hide>
       </div>
-      <CardContainer className="card">
-        <motion.h2>Clique ici</motion.h2>
-        <motion.div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a libero varius, euismod sapien a, sagittis erat. Nullam vel mattis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ex.</p>
-        </motion.div>
-      </CardContainer>
+      <Card />
     </ContactStyle>
   );
 };
@@ -82,14 +78,5 @@ const Social = styled(motion.div)`
   }
 `;
 
-const CardContainer = styled(motion.div)`
-  background: black;
-  padding: 3rem 5rem;
-  font-family: sans-serif;
-`
-const CardContent = styled(motion.div)`
-  padding-top: 1rem;
-  line-height: 150%;
-`
 
 export default Contact;
