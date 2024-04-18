@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //Animations
 import { motion } from "framer-motion";
 import { pageAnimation, titleAnim } from "../animation";
@@ -38,6 +38,13 @@ const Contact = () => {
           </Social>
         </Hide>
       </div>
+      <CardContainer className="card">
+        <motion.h2>Clique ici</motion.h2>
+        <motion.div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a libero varius, euismod sapien a, sagittis erat. Nullam vel mattis.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ex.</p>
+        </motion.div>
+      </CardContainer>
     </ContactStyle>
   );
 };
@@ -74,5 +81,15 @@ const Social = styled(motion.div)`
     margin: 2rem;
   }
 `;
+
+const CardContainer = styled(motion.div)`
+  background: black;
+  padding: 3rem 5rem;
+  font-family: sans-serif;
+`
+const CardContent = styled(motion.div)`
+  padding-top: 1rem;
+  line-height: 150%;
+`
 
 export default Contact;
