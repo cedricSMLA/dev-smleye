@@ -1,10 +1,10 @@
-import React from 'react';
-import Slider from 'react-slick';
-import styled from 'styled-components';
+import React from "react";
+import Slider from "react-slick";
+import styled from "styled-components";
 
 // Import des images
-import portrait1 from '../img/_MG_8387.jpg';  // Ajuste le chemin en fonction de ton dossier
-import portrait2 from '../img/_MG_8397.jpg';
+import portrait1 from "../img/_MG_8387.jpg"; // Ajuste le chemin en fonction de ton dossier
+import portrait2 from "../img/_MG_8397.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -35,8 +35,8 @@ const Carousel = () => {
 };
 
 const CarouselContainer = styled.div`
-  max-width: 800px;  // Ajuste cette largeur comme nécessaire
-  margin: auto;  // Centre le carrousel
+  max-width: 800px; // Ajuste cette largeur comme nécessaire
+  margin: auto; // Centre le carrousel
 `;
 
 const StyledSlider = styled(Slider)`

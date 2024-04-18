@@ -10,7 +10,6 @@ const Nav = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
-
       if (window.scrollY > 50) {
         setHideOnScroll(true);
       } else {
@@ -19,18 +18,17 @@ const Nav = () => {
       const totalHeight = document.body.scrollHeight - window.innerHeight;
       const progress = (window.pageYOffset / totalHeight) * 100;
       setScrollProgress(progress);
-
     };
 
-    window.addEventListener('scroll', handleScroll);
-    
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <StyledNav style={{ top: hideOnScroll ? '-100%' : '0' }}>
+    <StyledNav style={{ top: hideOnScroll ? "-100%" : "0" }}>
       <ProgressBar style={{ width: `${scrollProgress}%` }} />
       <h1>
         <Link id="logo" to="/">
@@ -38,7 +36,7 @@ const Nav = () => {
         </Link>
       </h1>
       <ul>
-      <li>
+        <li>
           <Link to="/">Accueil</Link>
           <Line
             transition={{ duration: 0.75 }}
@@ -95,14 +93,11 @@ const StyledNav = styled.nav`
     display: flex;
     list-style: none;
   }
-  h1 {
-    
-  }
   #logo {
     font-size: 1.5rem;
     font-family: "Amsterdam Signature", cursive;
     font-weight: lighter;
-    margin-left: 200px
+    margin-left: 200px;
   }
   li {
     padding-left: 10rem;

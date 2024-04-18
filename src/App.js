@@ -16,7 +16,6 @@ import { AnimatePresence } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 function App() {
   const location = useLocation();
 
@@ -27,7 +26,7 @@ function App() {
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
-              <Accueil />
+            <Accueil />
           </Route>
           <Route path="/quisuisje" exact>
             <Quisuisje />
