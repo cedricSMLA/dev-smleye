@@ -16,7 +16,7 @@ html{
 }
 
 body{
-    background: #2d3250;
+    background: #fff;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
@@ -25,13 +25,13 @@ button{
     font-size: 1.1.rem;
     cursor: pointer;
     padding: 1rem 2rem;
-    border: 3px solid #23d997;
+    border: 3px solid #006aff;
     background: transparent;
-    color: white;
+    color: #006aff;
     transition: all 0.5s ease;
     font-family: 'Inter', sans-serif;
     &:hover{
-        background-color: #23d997;
+        background-color: #006aff;
         color: white;
     }
 }
@@ -40,7 +40,7 @@ button{
         font-size: 4rem;
     }
     h3{
-        color: white;
+        color: #111;
     }
     h4{
         font-weight: bold;
@@ -52,11 +52,11 @@ button{
     }
     span{
         font-weight: bold;
-        color:#23d997;
+        color:#111;
     }
     p{
         padding: 3rem 0rem;
-        color: #ccc;
+        color: #111;
         font-size: 1.4rem;
         line-height: 150%;
     }

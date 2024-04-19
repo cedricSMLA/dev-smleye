@@ -51,7 +51,7 @@ const MovieDetail = () => {
 };
 
 const Details = styled(motion.div)`
-  color: white;
+  color: #111;
 `;
 const HeadLine = styled.div`
   min-height: 90vh;
@@ -87,7 +87,7 @@ const AwardStyle = styled.div`
   }
   .line {
     width: 100%;
-    background: #23d997;
+    background: #006aff;
     height: 0.5rem;
     margin: 1rem 0rem;
   }

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 //Animations
 import { motion } from "framer-motion";
 import { pageAnimation, titleAnim } from "../animation";
 import styled from "styled-components";
 
-import Card from "../components/Card";
+//import Card from "../components/Card";
 
 const Contact = () => {
   return (

@@ -92,7 +92,7 @@ const StyledNav = styled.nav`
   z-index: 10;
   transition: top 0.3s ease-in-out;
   a {
-    color: white;
+    color: #111;
     text-decoration: none;
   }
   ul {
@@ -129,7 +129,7 @@ const StyledNav = styled.nav`
 
 const Line = styled(motion.div)`
   height: 0.3rem;
-  background: #23d997;
+  background: #006aff;
   width: 0%;
   position: absolute;
   bottom: -80%;
@@ -144,7 +144,7 @@ const ProgressBar = styled.div`
   top: 0;
   left: 0;
   height: 5px;
-  background: #23d997;
+  background: #006aff;
   z-index: 20;
   transition: width 0.2s ease-in-out;
 `;
