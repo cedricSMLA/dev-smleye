@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 // import du logo SMLEYE
-import logo_smleye from "../img/smleye.webp";
+import logo_smleye from "../img/smleye.png";
 
 const Nav = () => {
   const { pathname } = useLocation();
@@ -86,13 +86,13 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
-  background: transparent;
+  background: #3a8eba;
   position: sticky;
   top: 0;
   z-index: 10;
   transition: top 0.3s ease-in-out;
   a {
-    color: #111;
+    color: #fff; // couleur elements de la nav_bar
     text-decoration: none;
   }
   ul {
@@ -100,10 +100,10 @@ const StyledNav = styled.nav`
     list-style: none;
   }
   #logo {
-    font-size: 1.5rem;
-    font-family: "Amsterdam Signature", cursive;
-    font-weight: lighter;
-    margin-left: 200px;
+    //font-size: 1.5rem;
+    //font-family: "Amsterdam Signature", cursive;
+    //font-weight: lighter;
+    margin-left: 225px;
   }
   li {
     padding-left: 10rem;
