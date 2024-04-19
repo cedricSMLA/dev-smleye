@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+// import du logo SMLEYE
+import logo_smleye from "../img/smleye.webp";
 
 const Nav = () => {
   const { pathname } = useLocation();
@@ -32,7 +34,11 @@ const Nav = () => {
       <ProgressBar style={{ width: `${scrollProgress}%` }} />
       <h1>
         <Link id="logo" to="/">
-          S ML E Y E
+          <img
+            src={logo_smleye}
+            alt="Logo1"
+            style={{ height: "75px", borderRadius: "1rem" }}
+          />
         </Link>
       </h1>
       <ul>
