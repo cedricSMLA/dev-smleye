@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 // Import des images
 import portrait1 from "../img/_MG_8387.jpg"; // Ajuste le chemin en fonction de ton dossier
-import portrait2 from "../img/_MG_8397.jpg";
+import portrait2 from "../img/A7403357.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -34,10 +34,7 @@ const Carousel = () => {
   );
 };
 
-const CarouselContainer = styled.div`
-  max-width: 800px; // Ajuste cette largeur comme nécessaire
-  margin: auto; // Centre le carrousel
-`;
+const CarouselContainer = styled.div``;
 
 const StyledSlider = styled(Slider)`
   .slick-slide div {
@@ -47,9 +44,9 @@ const StyledSlider = styled(Slider)`
 
 const CarouselImage = styled.img`
   width: 100%;
+  height: 100%; // Assure que l'image remplit le conteneur
   display: block;
   margin: auto;
-  object-fit: cover;
 `;
 
 export default Carousel;

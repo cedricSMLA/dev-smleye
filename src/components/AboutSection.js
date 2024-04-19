@@ -1,10 +1,11 @@
 import React from "react";
-import home1 from "../img/home1.png";
 import { About, Description, Image, Hide } from "../styles";
 //Framer Motion
 import { motion } from "framer-motion";
 import { titleAnim, fade, photoAnim } from "../animation";
 import Wave from "./Wave";
+//Photo
+import portrait1 from "../img/_MG_8387.jpg";
 
 const AboutSection = () => {
   return (
@@ -30,7 +31,18 @@ const AboutSection = () => {
         <motion.button variants={fade}>Contact Us</motion.button>
       </Description>
       <Image>
-        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
+        <motion.img
+          variants={photoAnim}
+          src={portrait1}
+          alt="guy with a camera"
+          style={{
+            width: "100%",
+            height: "1000px", // Définis une hauteur fixe pour le conteneur de l'image
+            objectFit: "cover",
+            objectPosition: "top",
+            borderRadius: "1.5rem", // Ajuste la position de l'image vers le haut pour rogner le bas
+          }}
+        />
       </Image>
       <Wave />
     </About>

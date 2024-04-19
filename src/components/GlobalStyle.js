@@ -16,7 +16,7 @@ html{
 }
 
 body{
-    background: #1b1b1b;
+    background: #2d3250;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
