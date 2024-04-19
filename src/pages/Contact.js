@@ -40,7 +40,6 @@ const Contact = () => {
           </Social>
         </Hide>
       </div>
-      <Card />
     </ContactStyle>
   );
 };
@@ -77,6 +76,5 @@ const Social = styled(motion.div)`
     margin: 2rem;
   }
 `;
-
 
 export default Contact;
