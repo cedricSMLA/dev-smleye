@@ -129,7 +129,7 @@ const StyledNav = styled.nav`
 
 const Line = styled(motion.div)`
   height: 0.3rem;
-  background: #006aff;
+  background: #ffa500;
   width: 0%;
   position: absolute;
   bottom: -80%;
@@ -144,7 +144,7 @@ const ProgressBar = styled.div`
   top: 0;
   left: 0;
   height: 5px;
-  background: #006aff;
+  background: #ffa500;
   z-index: 20;
   transition: width 0.2s ease-in-out;
 `;
