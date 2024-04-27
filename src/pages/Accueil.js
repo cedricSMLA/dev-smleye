@@ -5,6 +5,8 @@ import Carrousel from "../components/Carrousel";
 //Animations
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
+// Image Gallery
+import ImageGallery from "../components/ImageGallery";
 
 const Accueil = () => {
   return (
@@ -66,6 +68,5 @@ const CarrouselContent = styled.div`
   width: 100%;
   height: 100%;
 `;
-
 
 export default Accueil;
