@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { About } from "../styles";
 import Toggle from "./Toggle";
-import { AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useScroll } from "./useScroll";
 import { scrollReveal } from "../animation";
 
@@ -18,7 +18,8 @@ const FaqSection = () => {
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
-      <AnimateSharedLayout>
+      <AnimatePresence>
+      <motion.div layout>
         <Toggle title="How Do I Start?">
           <div className="answer">
             <p>Lorem ipsum dolor sit amet.</p>
@@ -56,7 +57,8 @@ const FaqSection = () => {
             </p>
           </div>
         </Toggle>
-      </AnimateSharedLayout>
+        </motion.div>
+      </AnimatePresence>
     </Faq>
   );
 };

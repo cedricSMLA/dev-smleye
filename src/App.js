@@ -9,7 +9,7 @@ import Portfolio from "./pages/Portfolio";
 import Nav from "./components/Nav";
 import MovieDetail from "./pages/MovieDetail";
 //Router
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 //Animation
 import { AnimatePresence } from "framer-motion";
 //Carrousel
@@ -23,24 +23,14 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Nav />
-      <AnimatePresence exitBeforeEnter>
-        <Switch location={location} key={location.pathname}>
-          <Route path="/" exact>
-            <Accueil />
-          </Route>
-          <Route path="/quisuisje" exact>
-            <Quisuisje />
-          </Route>
-          <Route path="/portfolio" exact>
-            <Portfolio />
-          </Route>
-          <Route path="/portfolio/:id">
-            <MovieDetail />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-        </Switch>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Accueil />} />
+  <Route path="/quisuisje" element={<Quisuisje />} />
+  <Route path="/portfolio" element={<Portfolio />} />
+  <Route path="/portfolio/:id" element={<MovieDetail />} />
+  <Route path="/contact" element={<Contact />} />
+        </Routes>
       </AnimatePresence>
     </div>
   );

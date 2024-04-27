@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { MovieState } from "../movieState";
 //Animations
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 
 const MovieDetail = () => {
-  const history = useHistory();
-  const url = history.location.pathname;
-  const [movies, setMovies] = useState(MovieState);
+  const location = useLocation(); // Utilisez useLocation pour obtenir l'objet location
+  const url = location.pathname; // Accédez à pathname pour obtenir l'URL actuelle
+  const [movies, setMovies] = useState(MovieState); 
   const [movie, setMovie] = useState(null);
 
   //UseEffect
@@ -87,7 +87,7 @@ const AwardStyle = styled.div`
   }
   .line {
     width: 100%;
-    background: #ffa500;
+    background: #006aff;
     height: 0.5rem;
     margin: 1rem 0rem;
   }
