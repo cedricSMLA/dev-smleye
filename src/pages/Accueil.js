@@ -25,6 +25,7 @@ const Accueil = () => {
           </CarrouselContainer>
         </CarrouselWrapper>
       </PageWrapper>
+      <ImageGallery />
     </motion.div>
   );
 };
