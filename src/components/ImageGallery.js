@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 import styled from "styled-components";
 //import { motion } from "framer-motion";
 //import { pageAnimation } from "../animation";
 // import des images
-import Img1 from "../img/A7400434-2.jpg";
-import Img2 from "../img/A7402325.jpg";
-import Img3 from "../img/A7403268.jpg";
-import Img4 from "../img/A7405742.jpg";
-import Img5 from "../img/A7405751.jpg";
-import Img6 from "../img/A7406572.jpg";
+import Img1 from "../img/img1.jpeg";
+import Img2 from "../img/img2.jpeg";
+import Img3 from "../img/img3.jpeg";
+import Img4 from "../img/img4.jpeg";
+import Img5 from "../img/img5.jpeg";
+import Img6 from "../img/img6.jpeg";
+import Img7 from "../img/img7.jpeg";
+import Img8 from "../img/img8.jpeg";
+import Img9 from "../img/img9.jpeg";
+import Img10 from "../img/img10.jpeg";
 
 const ImageGallery = () => {
   let data = [
@@ -38,28 +42,44 @@ const ImageGallery = () => {
       id: 6,
       imgSrc: Img6,
     },
+    {
+      id: 7,
+      imgSrc: Img7,
+    },
+    {
+      id: 8,
+      imgSrc: Img8,
+    },
+    {
+      id: 9,
+      imgSrc: Img9,
+    },
+    {
+      id: 10,
+      imgSrc: Img10,
+    },
   ];
-  const [model,setModel] = useState(false);
-  const [tempimgSrc, SetTempImgSrc] = useState('');
+  const [model, setModel] = useState(false);
+  const [tempimgSrc, SetTempImgSrc] = useState("");
 
-  const getImg = (imgSrc) =>{
+  const getImg = (imgSrc) => {
     SetTempImgSrc(imgSrc);
     setModel(true);
-  }
+  };
   return (
     <>
-<ModelContainer className={model? "model open" : "model"}>
-  <img src={tempimgSrc} alt={`au clique une fenetre s ouvre`} />
-  <CloseIcon onClick={() => setModel(false)} />
-</ModelContainer>
+      <ModelContainer className={model ? "model open" : "model"}>
+        <img src={tempimgSrc} alt={`au clique une fenetre s ouvre`} />
+        <CloseIcon onClick={() => setModel(false)} />
+      </ModelContainer>
       <GalleryWrapper>
-      {data.map((item, index)=>{
-        return(
-          <PictureContainer key={index} onClick={()=>getImg(item.imgSrc)}>
-           <img src={item.imgSrc} alt={`les pics sont la ${index + 1}`}/>  
-          </PictureContainer>
-        );
-      })}
+        {data.map((item, index) => {
+          return (
+            <PictureContainer key={index} onClick={() => getImg(item.imgSrc)}>
+              <img src={item.imgSrc} alt={`les pics sont la ${index + 1}`} />
+            </PictureContainer>
+          );
+        })}
       </GalleryWrapper>
     </>
   );
@@ -98,7 +118,7 @@ const PictureContainer = styled.div`
   margin-bottom: 12px;
 
   img {
-    width: 100%;  // L'image prendra toute la largeur de PictureContainer
+    width: 100%; // L'image prendra toute la largeur de PictureContainer
     height: auto; // L'hauteur s'ajuste pour maintenir le ratio d'aspect
   }
 
@@ -117,7 +137,8 @@ const ModelContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #000000;
-  transition: opacity .45s ease, visibility .45s ease, transform .5s ease-in-out;
+  transition: opacity 0.45s ease, visibility 0.45s ease,
+    transform 0.5s ease-in-out;
   visibility: hidden;
   opacity: 0;
   transform: scale(0);
