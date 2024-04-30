@@ -85,45 +85,50 @@ const ImageGallery = () => {
   );
 };
 
+// Styled component pour le conteneur de la galerie
 const GalleryWrapper = styled.div`
-  text-align: center;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
-  -webkit-column-width: 33%;
-  -moz-column-width: 33%;
-  column-width: 33%;
-  padding: 0 12px;
+  text-align: center; // Centre le contenu textuellement et visuellement
+  -webkit-column-count: 3; // Définit le nombre de colonnes pour Chrome, Safari
+  -moz-column-count: 3; // Définit le nombre de colonnes pour Firefox
+  column-count: 3; // Définit le nombre de colonnes standard
+  -webkit-column-width: 33%; // Largeur de chaque colonne pour Chrome, Safari
+  -moz-column-width: 33%; // Largeur de chaque colonne pour Firefox
+  column-width: 33%; // Largeur de chaque colonne standard
+  padding: 0 12px; // Ajoute un padding horizontal pour éviter que le contenu touche les bords
 
+  // Règles pour les écrans dont la largeur maximale est 991px
   @media (max-width: 991px) {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
+    -webkit-column-count: 2; // 2 colonnes pour Chrome, Safari
+    -moz-column-count: 2; // 2 colonnes pour Firefox
+    column-count: 2; // 2 colonnes standard
   }
 
+  // Règles pour les écrans dont la largeur maximale est 480px
   @media (max-width: 480px) {
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    column-count: 1;
-    -webkit-column-width: 100%;
-    -moz-column-width: 100%;
-    column-width: 100%;
+    -webkit-column-count: 1; // 1 colonne pour Chrome, Safari
+    -moz-column-count: 1; // 1 colonne pour Firefox
+    column-count: 1; // 1 colonne standard
+    -webkit-column-width: 100%; // Largeur de colonne à 100% pour Chrome, Safari
+    -moz-column-width: 100%; // Largeur de colonne à 100% pour Firefox
+    column-width: 100%; // Largeur de colonne à 100% standard
   }
 `;
 
+// Styled component pour le conteneur d'une image
 const PictureContainer = styled.div`
-  -webkit-transition: all 350ms ease;
-  transition: all 350ms ease;
-  cursor: pointer;
-  margin-bottom: 12px;
+  -webkit-transition: all 350ms ease; // Transition fluide pour toutes les propriétés sur Chrome, Safari
+  transition: all 350ms ease; // Transition fluide pour toutes les propriétés standard
+  cursor: pointer; // Le curseur devient un pointeur pour indiquer la cliquabilité
+  margin-bottom: 12px; // Espacement en bas de chaque conteneur d'image
 
   img {
-    width: 100%; // L'image prendra toute la largeur de PictureContainer
-    height: auto; // L'hauteur s'ajuste pour maintenir le ratio d'aspect
+    width: 100%; // L'image prend toute la largeur du conteneur
+    height: auto; // La hauteur s'ajuste automatiquement pour maintenir le ratio d'aspect de l'image
+    border-radius: 20px;
   }
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.8; // Réduit l'opacité de l'image au survol pour un effet visuel
   }
 `;
 

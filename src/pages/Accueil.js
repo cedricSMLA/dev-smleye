@@ -32,12 +32,12 @@ const Accueil = () => {
 
 // Styled Components
 const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  min-height: 100vh;
-  background-color: transparent;
+  display: flex; // Applique un affichage flexible pour aligner les éléments enfant
+  flex-direction: column; // Les enfants sont disposés en colonne (de haut en bas)
+  align-items: center; // Centre les enfants horizontalement dans le conteneur
+  padding: 5px; // Ajoute un padding tout autour du conteneur pour espace intérieur
+  min-height: 100vh; // Hauteur minimale du conteneur est fixée à 100% de la hauteur de la fenêtre de visualisation (viewport height)
+  background-color: transparent; // Le fond du conteneur est transparent, affichant ainsi le fond derrière ou la couleur par défaut du parent
 `;
 
 /*const Title = styled.h1`
@@ -47,7 +47,7 @@ const PageWrapper = styled.div`
 `;*/
 
 const CarrouselWrapper = styled.div`
-  width: 80%;
+  width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
