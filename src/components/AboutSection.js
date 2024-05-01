@@ -6,29 +6,42 @@ import { titleAnim, fade, photoAnim } from "../animation";
 import Wave from "./Wave";
 //Photo
 import portrait1 from "../img/_MG_8387.jpg";
+//Styled component
+import styled from "styled-components";
+
 
 const AboutSection = () => {
   return (
     <About>
       <Description>
-        <motion.div>
+        <StyledTitle>
           <Hide>
-            <motion.h2 variants={titleAnim}>We work to make</motion.h2>
+            <motion.h2 variants={titleAnim}>Capturer vos</motion.h2>
           </Hide>
           <Hide>
             <motion.h2 variants={titleAnim}>
-              your <span>dreams</span> come
+             <span>moments uniques</span>
             </motion.h2>
           </Hide>
           <Hide>
-            <motion.h2 variants={titleAnim}>true.</motion.h2>
+            <motion.h2 variants={titleAnim}>avec excellence.</motion.h2>
           </Hide>
-        </motion.div>
-        <motion.p variants={fade}>
-          Contact us for any photography or videography ideas that you have. We
-          have professionals with amazing skills.
-        </motion.p>
-        <motion.button variants={fade}>Contact Us</motion.button>
+        </StyledTitle>
+        <StyledDescription variants={fade}>
+        <p style={{ width: '350px'}}>
+          Dès mon plus jeune âge, la magie de la photographie m'a captivé, 
+        un héritage précieux transmis par mon père. Aujourd'hui, à travers <span>SMLEYE</span> by CEDRIC
+        , je transforme des instants éphémères en <span>souvenirs éternels</span>.
+        </p>
+        <p style={{ width: '350px'}}>
+         Depuis plus de deux ans,
+         je me spécialise dans la capture d'émotions pures à travers des portraits, des vidéos
+          de <span>mariage</span>, des clips et bien plus. <br></br>Chaque image est une fenêtre sur une histoire, 
+          chaque cadre un battement de cœur. Avec passion et délicatesse, je m'engage 
+          à immortaliser vos moments les plus précieux, pour que vous puissiez les chérir toute votre vie.
+          </p>
+        </StyledDescription>
+        <motion.button variants={fade}>Contactez-moi</motion.button>
       </Description>
       <Image>
         <motion.img
@@ -36,8 +49,8 @@ const AboutSection = () => {
           src={portrait1}
           alt="guy with a camera"
           style={{
-            width: "100%",
-            height: "1000px", // Définis une hauteur fixe pour le conteneur de l'image
+            width: "90%",
+            height: "900px", // Définis une hauteur fixe pour le conteneur de l'image
             objectFit: "cover",
             objectPosition: "top",
             borderRadius: "1.5rem", // Ajuste la position de l'image vers le haut pour rogner le bas
@@ -50,5 +63,16 @@ const AboutSection = () => {
 };
 
 //Styled Components
+const StyledDescription = styled(motion.p)`
+
+  text-align: justify; // Justifie le texte à l'intérieur du composant
+  padding: 20px; // Exemple de padding, ajustez selon vos besoins
+  margin-left: 200px;
+`;
+
+const StyledTitle = styled(motion.div)`
+  left: 0;
+  margin-left: 200px;
+`;
 
 export default AboutSection;

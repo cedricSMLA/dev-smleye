@@ -22,36 +22,36 @@ const ServicesSection = () => {
     >
       <Description>
         <h2>
-          High <span>quality</span> services
+          Des services de <span>haute qualité</span>
         </h2>
         <Cards>
           <Card>
             <div className="icon">
               <img alt="icon" src={clock} />
-              <h3>Efficient</h3>
+              <h3>Efficacité</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Chaque session est optimisée pour respecter votre temps précieux tout en assurant une qualité irréprochable.</p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={teamwork} />
-              <h3>Teamwork</h3>
+              <h3>Travail d'équipe</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Collaboration étroite avec les clients pour capturer fidèlement chaque émotion et chaque moment important.</p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={diaphragm} />
-              <h3>Diaphragm</h3>
+              <h3>Creativité</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Utilisation experte de la technique pour créer des images qui racontent votre histoire de manière unique et personnelle.</p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={money} />
-              <h3>Affordable</h3>
+              <h3>Abordable</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Offrir des souvenirs inestimables à des prix accessibles, sans jamais compromettre la qualité.</p>
           </Card>
         </Cards>
       </Description>
@@ -71,6 +71,7 @@ const Services = styled(About)`
     padding: 2rem 0rem 4rem 0rem;
   }
 `;
+
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -78,6 +79,7 @@ const Cards = styled.div`
     justify-content: center;
   }
 `;
+
 const Card = styled.div`
   flex-basis: 20rem;
   .icon {

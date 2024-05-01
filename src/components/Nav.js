@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 // import du logo SMLEYE
 import logo_smleye from "../img/smleye.png";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Nav = () => {
   const { pathname } = useLocation();
   const [hideOnScroll, setHideOnScroll] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -86,7 +88,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
-  background: #3a8eba;
+  background: #111;
   position: sticky;
   top: 0;
   z-index: 10;

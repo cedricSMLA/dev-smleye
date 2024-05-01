@@ -56,7 +56,8 @@ const CarrouselWrapper = styled.div`
 const CarrouselContainer = styled.div`
   width: 100%;
   height: 0;
-  padding-top: 42.55%; /* Ratio 16:9 */
+  padding-top: 56.25%; /* Ratio 16:9 */
+  //padding-top: 75%; /* Ratio 4:3 */
   position: relative;
 `;
 
