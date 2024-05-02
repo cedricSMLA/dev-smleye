@@ -16,47 +16,43 @@ const FaqSection = () => {
       initial="hidden"
     >
       <h2>
-        Any Questions <span>FAQ</span>
+        <span>FAQ</span>
       </h2>
       <AnimatePresence>
-      <motion.div layout>
-        <Toggle title="How Do I Start?">
-          <div className="answer">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
-              autem accusamus ex laboriosam porro, adipisci quam voluptatum
-              magnam placeat corporis.
-            </p>
-          </div>
-        </Toggle>
-        <Toggle title="Daily Schedule">
-          <div className="answer">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error,
-              totam.
-            </p>
-          </div>
-        </Toggle>
-        <Toggle title="Diferrent Payment Methods">
-          <div className="answer">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Necessitatibus, neque.
-            </p>
-          </div>
-        </Toggle>
-        <Toggle title="What Products do you offer.">
-          <div className="answer">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Necessitatibus, neque.
-            </p>
-          </div>
-        </Toggle>
+        <motion.div layout>
+          <Toggle title="Quels types de services photographiques et vidéographiques proposez-vous ?">
+            <div className="answer">
+              <p>
+                Je propose des services de clips musicaux, portraits, mariages,
+                et vidéos publicitaires, personnalisables selon vos besoins.
+              </p>
+            </div>
+          </Toggle>
+          <Toggle title="Comment puis-je réserver une session ou un service ?">
+            <div className="answer">
+              <p>
+                Contactez-moi via le formulaire de contact sur le site, par
+                email ou téléphone pour discuter des détails et fixer une date.
+              </p>
+            </div>
+          </Toggle>
+          <Toggle title="Quels sont vos tarifs pour les différents types de services ?">
+            <div className="answer">
+              <p>
+                Les tarifs varient selon le type de service; veuillez me
+                contacter pour un devis personnalisé.
+              </p>
+            </div>
+          </Toggle>
+          <Toggle title="Comment et quand puis-je m'attendre à recevoir mes photos ou vidéos finales ?">
+            <div className="answer">
+              <p>
+                Les photos et vidéos finales sont généralement livrées sous 2 à
+                4 semaines , en format numérique via un lien de téléchargement
+                sécurisé.
+              </p>
+            </div>
+          </Toggle>
         </motion.div>
       </AnimatePresence>
     </Faq>

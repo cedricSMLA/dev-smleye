@@ -30,17 +30,16 @@ export const Description = styled.div`
   }
 `;
 export const Image = styled.div`
-  z-index: 2;          // Priorité d'affichage supérieure.
-  flex: 1;             // Occupe l'espace disponible dans le conteneur flex.
-  overflow: hidden;    // Cache le contenu débordant de la div.
+  z-index: 2; // Priorité d'affichage supérieure.
+  flex: 1; // Occupe l'espace disponible dans le conteneur flex.
+  overflow: hidden; // Cache le contenu débordant de la div.
   padding-right: 10rem; // Espace à droite pour la mise en page.
   img {
-    width: 100%;       // L'image remplit la largeur de la div.
-    height: 80vh;      // Hauteur fixée à 80% de la hauteur de la fenêtre.
+    width: 100%; // L'image remplit la largeur de la div.
+    height: 80vh; // Hauteur fixée à 80% de la hauteur de la fenêtre.
     object-fit: cover; // Adapte l'image à la div sans la déformer.
   }
 `;
-
 
 export const Hide = styled.div`
   overflow: hidden;
