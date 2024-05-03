@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 //Images
-import athlete from "../img/athlete-small.png";
-import theracer from "../img/theracer-small.png";
-import goodtimes from "../img/goodtimes-small.png";
+import pierre from "../img/P1015068-2.jpg";
+import arabe from "../img/A7405093.jpg";
+import mayotte from "../img/DJI_0087.jpg";
 //Animations
 import { motion } from "framer-motion";
 import {
@@ -36,20 +36,20 @@ const Portfolio = () => {
         <Frame4 variants={slider}></Frame4>
       </motion.div>
       <Movie>
-        <motion.h2 variants={fade}>The Athlete</motion.h2>
+        <motion.h2 variants={fade}>Clémence & Pierre</motion.h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/portfolio/the-athlete">
           <Hide>
-            <motion.img variants={photoAnim} src={athlete} alt="athlete" />
+            <motion.img variants={photoAnim} src={pierre} alt="athlete" />
           </Hide>
         </Link>
       </Movie>
 
       <Movie ref={element} variants={fade} animate={controls} initial="hidden">
-        <h2>The Racer</h2>
+        <h2>Samira et Sofiane</h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/portfolio/the-racer">
-          <img src={theracer} alt="theracer" />
+          <img src={arabe} alt="theracer" />
         </Link>
       </Movie>
 
@@ -59,10 +59,10 @@ const Portfolio = () => {
         animate={controls2}
         initial="hidden"
       >
-        <h2>Good Times</h2>
+        <h2>mayotte</h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/portfolio/good-times">
-          <img src={goodtimes} alt="goodtimes" />
+          <img src={mayotte} alt="goodtimes" />
         </Link>
       </Movie>
       <ScrollTop />

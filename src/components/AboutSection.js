@@ -1,42 +1,40 @@
 import React from "react";
-import { About, Description, Image, Hide } from "../styles";
-//Framer Motion
+import { About, Description, Image } from "../styles";
 import { motion } from "framer-motion";
 import { titleAnim, fade, photoAnim } from "../animation";
 import Wave from "./Wave";
-//Photo
 import portrait1 from "../img/_MG_8387.jpg";
-//Styled component
 import styled from "styled-components";
 
 const AboutSection = () => {
   return (
     <About>
+      <StyledImage>
+        <motion.img
+          variants={photoAnim}
+          initial="hidden"
+          animate="show"
+          src={portrait1}
+          alt="Photographe tenant un appareil photo"
+        />
+      </StyledImage>
       <Description>
         <StyledTitle>
-          <Hide>
-            <motion.h2 variants={titleAnim}>Capturer vos</motion.h2>
-          </Hide>
-          <Hide>
-            <motion.h2 variants={titleAnim}>
-              <span>moments uniques</span>
-            </motion.h2>
-          </Hide>
-          <Hide>
-            <motion.h2 variants={titleAnim}>avec excellence.</motion.h2>
-          </Hide>
+          <motion.h2 variants={titleAnim}>Capturer vos</motion.h2>
+          <motion.h2 variants={titleAnim}><span>moments uniques</span></motion.h2>
+          <motion.h2 variants={titleAnim}>avec excellence.</motion.h2>
         </StyledTitle>
         <StyledDescription variants={fade}>
-          <p style={{ width: "350px" }}>
+          <p>
             Dès mon plus jeune âge, la magie de la photographie m'a captivé, un
             héritage précieux transmis par mon père. Aujourd'hui, à travers{" "}
-            <span>SMLEYE</span> by CEDRIC , je transforme des instants éphémères
-            en <span>souvenirs éternels</span>.
+            <span>SMLEYE</span> by CEDRIC, je transforme des instants éphémères
+            en souvenirs éternels.
           </p>
-          <p style={{ width: "350px" }}>
+          <p>
             Depuis plus de deux ans, je me spécialise dans la capture d'émotions
-            pures à travers des portraits, des vidéos de <span>mariage</span>,
-            des clips et bien plus. <br></br>Chaque image est une fenêtre sur
+            pures à travers des portraits, des vidéos de mariage,
+            des clips et bien plus. Chaque image est une fenêtre sur
             une histoire, chaque cadre un battement de cœur. Avec passion et
             délicatesse, je m'engage à immortaliser vos moments les plus
             précieux, pour que vous puissiez les chérir toute votre vie.
@@ -44,35 +42,31 @@ const AboutSection = () => {
         </StyledDescription>
         <motion.button variants={fade}>Contactez-moi</motion.button>
       </Description>
-      <Image>
-        <motion.img
-          variants={photoAnim}
-          src={portrait1}
-          alt="guy with a camera"
-          style={{
-            width: "100%",
-            height: "1200px", // Définis une hauteur fixe pour le conteneur de l'image
-            objectFit: "cover",
-            objectPosition: "top",
-            borderRadius: "1.5rem", // Ajuste la position de l'image vers le haut pour rogner le bas
-          }}
-        />
-      </Image>
       <Wave />
     </About>
   );
 };
 
-//Styled Components
-const StyledDescription = styled(motion.p)`
-  text-align: justify; // Justifie le texte à l'intérieur du composant
-  padding: 20px; // Exemple de padding, ajustez selon vos besoins
-  margin-left: 200px;
+const StyledImage = styled(Image)`
+  img {
+    width: 100%;
+    height: auto; // Adjust height automatically
+    object-fit: cover;
+    object-position: top;
+    border-radius: 1.5rem;
+  }
+`;
+
+const StyledDescription = styled(motion.div)`
+  text-align: justify;
+  padding: 20px;
+  margin: auto;
+  max-width: 800px; // Responsive max width
 `;
 
 const StyledTitle = styled(motion.div)`
-  left: 0;
-  margin-left: 200px;
+  text-align: center;
+  margin: 20px 0;
 `;
 
 export default AboutSection;

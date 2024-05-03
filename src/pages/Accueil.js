@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-//Page Components
 import Carrousel from "../components/Carrousel";
-//Animations
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
-// Image Gallery
 import ImageGallery from "../components/ImageGallery";
 
 const Accueil = () => {
@@ -20,31 +17,26 @@ const Accueil = () => {
         <CarrouselWrapper>
           <CarrouselContainer>
             <CarrouselContent>
-              <Carrousel /> {/* Ici le Carousel est utilisé */}
+              <Carrousel />
+              <TextOnCarousel>Explorez notre monde</TextOnCarousel>
             </CarrouselContent>
           </CarrouselContainer>
         </CarrouselWrapper>
+        <TextBelow>Découvrez des images captivantes ci-dessous</TextBelow>
       </PageWrapper>
       <ImageGallery />
     </motion.div>
   );
 };
 
-// Styled Components
 const PageWrapper = styled.div`
-  display: flex; // Applique un affichage flexible pour aligner les éléments enfant
-  flex-direction: column; // Les enfants sont disposés en colonne (de haut en bas)
-  align-items: center; // Centre les enfants horizontalement dans le conteneur
-  padding: 5px; // Ajoute un padding tout autour du conteneur pour espace intérieur
-  min-height: 100vh; // Hauteur minimale du conteneur est fixée à 100% de la hauteur de la fenêtre de visualisation (viewport height)
-  background-color: transparent; // Le fond du conteneur est transparent, affichant ainsi le fond derrière ou la couleur par défaut du parent
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  min-height: 100vh;
+  background-color: transparent;
 `;
-
-/*const Title = styled.h1`
-  color: #333;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-`;*/
 
 const CarrouselWrapper = styled.div`
   width: 100%;
@@ -56,8 +48,7 @@ const CarrouselWrapper = styled.div`
 const CarrouselContainer = styled.div`
   width: 100%;
   height: 0;
-  padding-top: 56.25%; /* Ratio 16:9 */
-  //padding-top: 75%; /* Ratio 4:3 */
+  padding-top: 56.25%; // Maintains a 16:9 aspect ratio
   position: relative;
 `;
 
@@ -69,6 +60,33 @@ const CarrouselContent = styled.div`
   bottom: 0;
   width: 100%;
   height: 100%;
+`;
+
+const TextOnCarousel = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem; // Responsive font size
+  font-weight: bold;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 90%; // Ensure the text does not overflow on small devices
+`;
+
+const TextBelow = styled.h2`
+  color: #666;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0 10%; // Responsive padding
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    margin-bottom: 5px; // Reduced space in mobile view
+  }
 `;
 
 export default Accueil;
