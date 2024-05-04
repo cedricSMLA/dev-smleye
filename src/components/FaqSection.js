@@ -75,7 +75,7 @@ const Faq = styled(About)`
     width: 100%;
   }
   .question {
-    padding: 3rem 0rem;
+    padding: 1rem 0rem;
     cursor: pointer;
   }
   .answer {

@@ -108,7 +108,7 @@ const StyledNav = styled.nav`
     margin-left: 225px;
   }
   li {
-    padding-left: 10rem;
+    padding-left: 5rem;
     position: relative;
   }
   @media (max-width: 1300px) {
