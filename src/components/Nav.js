@@ -88,7 +88,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
-  background: #111000;
+  background: #242323;
   position: sticky;
   top: 0;
   z-index: 10;

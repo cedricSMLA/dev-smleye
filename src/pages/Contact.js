@@ -26,34 +26,50 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    setSubmitted(true);
-
-    // Commence le compte à rebours
-    const timer = setInterval(() => {
-      setCountdown((prevCountdown) => prevCountdown - 1);
-    }, 1000);
-
-    setTimeout(() => {
-      clearInterval(timer); // Arrête le compte à rebours
-      setFormData({
-        lastName: "",
-        email: "",
-        phone: "",
-        date: "",
-        lieu: "",
-        message: "",
-        serviceType: "",
-      });
-      setSubmitted(false);
-      setCountdown(5); // Réinitialise le compte à rebours pour la prochaine utilisation
-    }, 4000); // Nettoie le formulaire et cache le message après 4 secondes
-
-    setTimeout(() => {
-      navigate('/portfolio'); // Navigue vers la page portfolio après 5 secondes
-    }, 5000);
+    e.preventDefault(); // Empêche le rechargement de la page
+    console.log(formData); // Affiche les données du formulaire dans la console
+  
+    // Envoie les données au serveur backend
+    fetch('http://localhost:3001/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Réponse du serveur:', data.message);
+      setSubmitted(true);
+      // Commence le compte à rebours
+      const timer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1);
+      }, 1000);
+  
+      setTimeout(() => {
+        clearInterval(timer); // Arrête le compte à rebours
+        setFormData({
+          lastName: "",
+          email: "",
+          phone: "",
+          date: "",
+          lieu: "",
+          message: "",
+          serviceType: "",
+        });
+        setSubmitted(false);
+        setCountdown(5); // Réinitialise le compte à rebours pour la prochaine utilisation
+      }, 4000); // Nettoie le formulaire et cache le message après 4 secondes
+  
+      setTimeout(() => {
+        navigate('/portfolio'); // Navigue vers la page portfolio après 5 secondes
+      }, 5000);
+    })
+    .catch(error => {
+      console.error('Erreur:', error);
+    });
   };
+  
 
   return (
     <FormContainer
