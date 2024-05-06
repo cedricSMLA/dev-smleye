@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom"; // Importez useNavigate
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 const Contact = () => {
@@ -19,16 +20,44 @@ const Contact = () => {
 
   const [submitted, setSubmitted] = useState(false); // Ajout pour gérer l'affichage du message de confirmation
   const [countdown, setCountdown] = useState(5); // Initialisation du compte à rebours à 5 secondes
+  //const [captchaValue, setCaptchaValue] = useState(null);
+
+
+  // Valide l'adresse email via une expression régulière.
+const validateEmail = email => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(email).toLowerCase());
+
+// Valide le numéro de téléphone en vérifiant divers formats avec une expression régulière.
+const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(String(phone));
+
+
+  const validateForm = (data) => {
+    const errors = {};
+    if (!validateEmail(data.email)) errors.email = 'Invalid email address.';
+    if (data.phone && !validatePhone(data.phone)) errors.phone = 'Invalid phone number.';
+    if (data.message.length > 700) errors.message = 'Message too long.';
+    return errors;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  /*const onCaptchaChange = value => {
+    setCaptchaValue(value);
+  };*/
+
   const handleSubmit = (e) => {
     e.preventDefault(); // Empêche le rechargement de la page
     console.log(formData); // Affiche les données du formulaire dans la console
+    //const errors = validateForm(formData);
   
+   /* if (Object.keys(errors).length > 0 || !captchaValue) {
+      console.error('Validation or captcha errors:', errors);
+      alert('Please fix the errors and confirm you are not a robot.');
+      return;
+    }*/
+
     // Envoie les données au serveur backend
     fetch('http://localhost:3001/submit-form', {
       method: 'POST',
@@ -147,8 +176,16 @@ const Contact = () => {
           onChange={handleChange}
           placeholder="N'hésitez pas à me donner un maximum de détails sur votre projet, cela m'aidera à vous répondre au mieux :)"
           required
+          maxLength="700"
         />
+        <div>
+          {700 - formData.message.length} caractères restants
+        </div>
       </LabelField>
+      {/*<ReCAPTCHA
+        sitekey="6LeA4NIpAAAAAIb-W-bS0xbjDj-Mn45LBH6IcKMI"
+        onChange={onCaptchaChange}
+  />*/}
       <Button type="submit">Envoyer</Button>
       {submitted && (
         <Overlay>

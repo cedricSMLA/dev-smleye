@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 // import du logo SMLEYE
 import logo_smleye from "../img/smleye.png";
-import MenuIcon from '@mui/icons-material/Menu';
+//import MenuIcon from '@mui/icons-material/Menu';
 
 const Nav = () => {
   const { pathname } = useLocation();
