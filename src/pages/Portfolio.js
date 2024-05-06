@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 //Images
-import pierre from "../img/P1015068-2.jpg";
-import arabe from "../img/A7405093.jpg";
+import pierre from "../img/Mariages/clemence_pierre/A7402467.jpg";
+import merrick from "../img/Portraits/Merrick/A7400434-2.jpg";
 import mayotte from "../img/DJI_0087.jpg";
 //Animations
 import { motion } from "framer-motion";
@@ -46,10 +46,10 @@ const Portfolio = () => {
       </Movie>
 
       <Movie ref={element} variants={fade} animate={controls} initial="hidden">
-        <h2>Samira et Sofiane</h2>
+        <h2>Merrick</h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/portfolio/the-racer">
-          <img src={arabe} alt="theracer" />
+          <img src={merrick} alt="theracer" />
         </Link>
       </Movie>
 

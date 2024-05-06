@@ -50,7 +50,7 @@ const AboutSection = () => {
 const StyledImage = styled(Image)`
   img {
     width: 100%;
-    height: auto; // Adjust height automatically
+    height: auto;
     object-fit: cover;
     object-position: top;
     border-radius: 1.5rem;
@@ -61,7 +61,7 @@ const StyledDescription = styled(motion.div)`
   text-align: justify;
   padding: 20px;
   margin: auto;
-  max-width: 800px; // Responsive max width
+  max-width: 50ch; // Ajusté pour environ 10 mots par ligne
 `;
 
 const StyledTitle = styled(motion.div)`
