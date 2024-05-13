@@ -1,40 +1,38 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom"; // Importez useNavigate
-import ReCAPTCHA from "react-google-recaptcha";
-
+import { useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
-  const navigate = useNavigate(); // Hook pour la navigation
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    //firstName: "",   // Prénom
-    lastName: "",    // Nom
+    lastName: "",
     email: "",
     phone: "",
-    date: "",        // Date, assurez-vous que cette clé est correcte
-    lieu: "",        // Lieu
+    date: null,
+    lieu: "",
     message: "",
-    serviceType: "", // Type de service
+    serviceType: "",
   });
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [countdown, setCountdown] = useState(5);
+  // const [captchaValue, setCaptchaValue] = useState(null);
 
-  const [submitted, setSubmitted] = useState(false); // Ajout pour gérer l'affichage du message de confirmation
-  const [countdown, setCountdown] = useState(5); // Initialisation du compte à rebours à 5 secondes
-  //const [captchaValue, setCaptchaValue] = useState(null);
+  const validateEmail = email =>
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(email).toLowerCase());
 
-
-  // Valide l'adresse email via une expression régulière.
-const validateEmail = email => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(email).toLowerCase());
-
-// Valide le numéro de téléphone en vérifiant divers formats avec une expression régulière.
-const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(String(phone));
-
+  const validatePhone = phone =>
+    /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(String(phone));
 
   const validateForm = (data) => {
     const errors = {};
-    if (!validateEmail(data.email)) errors.email = 'Invalid email address.';
-    if (data.phone && !validatePhone(data.phone)) errors.phone = 'Invalid phone number.';
-    if (data.message.length > 700) errors.message = 'Message too long.';
+    if (!validateEmail(data.email)) errors.email = 'Adresse email invalide.';
+    if (data.phone && !validatePhone(data.phone)) errors.phone = 'Numéro de téléphone invalide.';
+    if (data.message.length > 700) errors.message = 'Le message est trop long.';
     return errors;
   };
 
@@ -43,62 +41,75 @@ const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3}
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  /*const onCaptchaChange = value => {
-    setCaptchaValue(value);
-  };*/
+  const handleDateChange = (date) => {
+    setFormData((prevState) => ({ ...prevState, date }));
+  };
+
+  // const onCaptchaChange = value => {
+  //   setCaptchaValue(value);
+  // };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
-    console.log(formData); // Affiche les données du formulaire dans la console
-    //const errors = validateForm(formData);
-  
-   /* if (Object.keys(errors).length > 0 || !captchaValue) {
-      console.error('Validation or captcha errors:', errors);
-      alert('Please fix the errors and confirm you are not a robot.');
-      return;
-    }*/
+    e.preventDefault();
+    console.log(formData);
 
-    // Envoie les données au serveur backend
+    const validationErrors = validateForm(formData);
+    if (Object.keys(validationErrors).length > 0) {
+      console.error('Validation errors:', validationErrors);
+      setErrors(validationErrors);
+      alert('Veuillez corriger les erreurs dans le formulaire.');
+      return;
+    }
+
+    const dataToSend = {
+      ...formData,
+      date: formData.date ? formData.date.toISOString() : "", // Convert date to ISO string
+    };
+
     fetch('http://localhost:3001/submit-form', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(dataToSend),
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Réponse du serveur:', data.message);
-      setSubmitted(true);
-      // Commence le compte à rebours
-      const timer = setInterval(() => {
-        setCountdown((prevCountdown) => prevCountdown - 1);
-      }, 1000);
-  
-      setTimeout(() => {
-        clearInterval(timer); // Arrête le compte à rebours
-        setFormData({
-          lastName: "",
-          email: "",
-          phone: "",
-          date: "",
-          lieu: "",
-          message: "",
-          serviceType: "",
-        });
-        setSubmitted(false);
-        setCountdown(5); // Réinitialise le compte à rebours pour la prochaine utilisation
-      }, 4000); // Nettoie le formulaire et cache le message après 4 secondes
-  
-      setTimeout(() => {
-        navigate('/portfolio'); // Navigue vers la page portfolio après 5 secondes
-      }, 5000);
-    })
-    .catch(error => {
-      console.error('Erreur:', error);
-    });
+      .then(response => response.json())
+      .then(data => {
+        console.log('Réponse du serveur:', data.message);
+        setSubmitted(true);
+
+        const timer = setInterval(() => {
+          setCountdown((prevCountdown) => prevCountdown - 1);
+        }, 1000);
+
+        setTimeout(() => {
+          clearInterval(timer);
+          resetForm();
+          setSubmitted(false);
+          setCountdown(5);
+        }, 4000);
+
+        setTimeout(() => {
+          navigate('/portfolio');
+        }, 5000);
+      })
+      .catch(error => {
+        console.error('Erreur:', error);
+      });
   };
-  
+
+  const resetForm = () => {
+    setFormData({
+      lastName: "",
+      email: "",
+      phone: "",
+      date: null,
+      lieu: "",
+      message: "",
+      serviceType: "",
+    });
+    setErrors({});
+  };
 
   return (
     <FormContainer
@@ -116,8 +127,8 @@ const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3}
           onChange={handleChange}
           required
         />
+        {errors.lastName && <ErrorMessage>{errors.lastName}</ErrorMessage>}
       </LabelField>
-      
       <LabelField label="Email" required>
         <Input
           type="email"
@@ -126,16 +137,17 @@ const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3}
           onChange={handleChange}
           required
         />
+        {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
       </LabelField>
       <LabelField label="Date" required>
-        <Input
-          type="text"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          placeholder="01 juin 2024"
+        <DatePicker
+          selected={formData.date}
+          onChange={handleDateChange}
+          dateFormat="dd MMMM yyyy"
+          placeholderText="Sélectionnez une date"
           required
         />
+        {errors.date && <ErrorMessage>{errors.date}</ErrorMessage>}
       </LabelField>
       <LabelField label="Téléphone">
         <Input
@@ -144,6 +156,7 @@ const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3}
           value={formData.phone}
           onChange={handleChange}
         />
+        {errors.phone && <ErrorMessage>{errors.phone}</ErrorMessage>}
       </LabelField>
       <LabelField label="Lieu" required>
         <Input
@@ -153,6 +166,7 @@ const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3}
           onChange={handleChange}
           required
         />
+        {errors.lieu && <ErrorMessage>{errors.lieu}</ErrorMessage>}
       </LabelField>
       <LabelField label="Type de service" required>
         <Select
@@ -168,6 +182,7 @@ const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3}
           <option value="drone">Prestation au drone</option>
           <option value="autre">Autre</option>
         </Select>
+        {errors.serviceType && <ErrorMessage>{errors.serviceType}</ErrorMessage>}
       </LabelField>
       <LabelField label="Message" required>
         <Textarea
@@ -178,14 +193,15 @@ const validatePhone = phone => /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3}
           required
           maxLength="700"
         />
+        {errors.message && <ErrorMessage>{errors.message}</ErrorMessage>}
         <div>
           {700 - formData.message.length} caractères restants
         </div>
       </LabelField>
-      {/*<ReCAPTCHA
+      {/* <ReCAPTCHA
         sitekey="6LeA4NIpAAAAAIb-W-bS0xbjDj-Mn45LBH6IcKMI"
         onChange={onCaptchaChange}
-  />*/}
+      /> */}
       <Button type="submit">Envoyer</Button>
       {submitted && (
         <Overlay>
@@ -207,7 +223,7 @@ const FormContainer = styled(motion.div)`
   background: #f8f8f8;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(50px); // Déplace le formulaire de 50px vers le bas
+  transform: translateY(50px);
 `;
 
 const LabelField = ({ label, children, required }) => (
@@ -281,6 +297,11 @@ const Button = styled.button`
   &:hover {
     background-color: #555;
   }
+`;
+
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 12px;
 `;
 
 export default Contact;
