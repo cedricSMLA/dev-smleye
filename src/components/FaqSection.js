@@ -20,26 +20,26 @@ const FaqSection = () => {
       </h2>
       <AnimatePresence>
         <motion.div layout>
-          <Toggle title="Quels types de services photographiques et vidéographiques proposez-vous ?">
+          <Toggle title="Quels types de services photos et vidéos je propose ?">
             <div className="answer">
               <p>
-                Je propose des services de clips musicaux, portraits, mariages,
-                et vidéos publicitaires, personnalisables selon vos besoins.
+                Je couvre votre mariage en vidéo et/ou photo, vos clips musicaux, je vous propose des portraits photos et vidéos,
+                et vidéos publicitaires, etc.
               </p>
             </div>
           </Toggle>
-          <Toggle title="Comment puis-je réserver une session ou un service ?">
+          <Toggle title="Comment réserver une prestation ?">
             <div className="answer">
               <p>
                 Contactez-moi via le formulaire de contact sur le site, par
-                email ou téléphone pour discuter des détails et fixer une date.
+                email, sur Instagram ou Snapchat pour discuter des détails et fixer une date.
               </p>
             </div>
           </Toggle>
-          <Toggle title="Quels sont vos tarifs pour les différents types de services ?">
+          <Toggle title="Quels sont les tarifs pour les différents types de prestations ?">
             <div className="answer">
               <p>
-                Les tarifs varient selon le type de service; veuillez me
+                Les tarifs varient selon le type de prestation; veuillez me
                 contacter pour un devis personnalisé.
               </p>
             </div>

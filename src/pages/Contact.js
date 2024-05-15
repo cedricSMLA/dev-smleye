@@ -229,7 +229,7 @@ const FormContainer = styled(motion.div)`
 const LabelField = ({ label, children, required }) => (
   <Label>
     {label}
-    {required && <span style={{ color: "red" }}> *</span>}
+    {required && <span style={{ color: "red" }}> * </span>}
     {children}
   </Label>
 );

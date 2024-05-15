@@ -4,7 +4,7 @@ import clock from "../img/clock.svg";
 import diaphragm from "../img/diaphragm.svg";
 import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
-import home2 from "../img/home2.png";
+import autel from "../img/Mariages/clemence_pierre/P1014108.jpg";
 //Styles
 import { About, Description, Image } from "../styles";
 import styled from "styled-components";
@@ -22,7 +22,7 @@ const ServicesSection = () => {
     >
       <Description>
         <h2>
-          Des services de <span>haute qualité</span>
+          <span>L'excellence</span>  à chaque instant
         </h2>
         <Cards>
           <Card>
@@ -30,44 +30,48 @@ const ServicesSection = () => {
               <img alt="icon" src={clock} />
               <h3>Efficacité</h3>
             </div>
-            <p>Chaque session est optimisée pour respecter votre temps précieux tout en assurant une qualité irréprochable.</p>
+            <p>Pas de retard à cause du photographe, promis !</p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={teamwork} />
               <h3>Travail d'équipe</h3>
             </div>
-            <p>Collaboration étroite avec les clients pour capturer fidèlement chaque émotion et chaque moment important.</p>
+            <p>Chaque émotion capturée, <span>ensemble.</span></p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={diaphragm} />
               <h3>Creativité</h3>
             </div>
-            <p>Utilisation experte de la technique pour créer des images qui racontent votre histoire de manière unique et personnelle.</p>
+            <p>Des images <span>uniques</span> qui racontent votre histoire.</p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={money} />
               <h3>Abordable</h3>
             </div>
-            <p>Offrir des souvenirs inestimables à des prix accessibles, sans jamais compromettre la qualité.</p>
+            <p>Des souvenirs précieux à des prix <span>accessibles</span>.</p>
           </Card>
         </Cards>
       </Description>
       <Image>
-        <img alt="camera" src={home2} />
+        <StyledImage alt="camera" src={autel} />
       </Image>
     </Services>
   );
 };
+
+const StyledImage = styled.img`
+  border-radius: 15px; // Adjust the value to get the desired roundness
+`;
 
 const Services = styled(About)`
   h2 {
     padding-bottom: 5rem;
   }
   p {
-    width: 70%;
+    width: 85%;
     padding: 2rem 0rem 4rem 0rem;
   }
 `;

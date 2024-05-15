@@ -5,6 +5,7 @@ import { titleAnim, fade, photoAnim } from "../animation";
 import Wave from "./Wave";
 import portrait1 from "../img/_MG_8387.jpg";
 import styled from "styled-components";
+import { Link } from "react-router-dom";  // Import Link from react-router-dom
 
 const AboutSection = () => {
   return (
@@ -25,22 +26,29 @@ const AboutSection = () => {
           <motion.h2 variants={titleAnim}>avec excellence.</motion.h2>
         </StyledTitle>
         <StyledDescription variants={fade}>
-          <p>
-            Dès mon plus jeune âge, la magie de la photographie m'a captivé, un
-            héritage précieux transmis par mon père. Aujourd'hui, à travers{" "}
-            <span>SMLEYE</span> by CEDRIC, je transforme des instants éphémères
-            en souvenirs éternels.
+        <p>
+            Bienvenue chez <span>SMLEYE</span> by CEDRIC. 
+            Depuis des années, je suis passionné par l'art
+             de la photographie. Chaque clic de mon appareil
+              capture <span>une émotion</span>, <span>une histoire</span>, <span>un moment unique</span>.
           </p>
           <p>
-            Depuis plus de deux ans, je me spécialise dans la capture d'émotions
-            pures à travers des portraits, des vidéos de mariage,
-            des clips et bien plus. Chaque image est une fenêtre sur
-            une histoire, chaque cadre un battement de cœur. Avec passion et
-            délicatesse, je m'engage à immortaliser vos moments les plus
-            précieux, pour que vous puissiez les chérir toute votre vie.
+            Spécialisé dans les <span>portraits</span>,
+            les <span>mariages</span> et les <span>clips</span>, je mets tout mon cœur
+            à saisir l'essence de chaque instant. Mon objectif
+            est de transformer vos moments les plus précieux 
+            en <span>souvenirs éternels</span>. Avec une approche
+            artistique et une attention minutieuse aux détails,
+            je m'engage à rendre chaque séance <span>inoubliable</span>.
           </p>
+          <p>
+            Explorez mon univers et découvrez comment je peux <span>immortaliser</span> vos plus
+             beaux moments. Chaque projet est une nouvelle aventure, et j'ai hâte de partager <span>la vôtre</span>.
+          </p>
+          <Link to="/contact">
+          <StyledButton variants={fade}>Contactez-moi</StyledButton>
+        </Link>
         </StyledDescription>
-        <motion.button variants={fade}>Contactez-moi</motion.button>
       </Description>
       <Wave />
     </About>
@@ -67,6 +75,21 @@ const StyledDescription = styled(motion.div)`
 const StyledTitle = styled(motion.div)`
   text-align: center;
   margin: 20px 0;
+`;
+
+const StyledButton = styled(motion.button)`
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #2980b9;
+  }
 `;
 
 export default AboutSection;
