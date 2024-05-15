@@ -18,11 +18,15 @@ const Accueil = () => {
           <CarrouselContainer>
             <CarrouselContent>
               <Carrousel />
-              <TextOnCarousel>Explorez notre monde</TextOnCarousel>
+              <TextOnCarousel>
+                Immortalize the Moment
+              </TextOnCarousel>
             </CarrouselContent>
           </CarrouselContainer>
         </CarrouselWrapper>
-        <TextBelow>Découvrez des images captivantes ci-dessous</TextBelow>
+        <TextBelow>
+          Discover a World of Visual Wonders
+        </TextBelow>
       </PageWrapper>
       <ImageGallery />
     </motion.div>
@@ -41,7 +45,7 @@ const PageWrapper = styled.div`
 const CarrouselWrapper = styled.div`
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
 `;
 
@@ -67,32 +71,24 @@ const TextOnCarousel = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2rem; // Responsive font size
-  font-weight: bold;
+  color: #fff;
+  font-size: 5rem;
+  //font-weight: 600;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px 20px;
-  border-radius: 10px;
-  max-width: 90%; // Ensure the text does not overflow on small devices
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.0); // Fond transparent
+  font-family: 'Scriptina'; // Utilisation de la police Scriptina
 `;
 
 const TextBelow = styled.h2`
-  color: #333; // Couleur plus subtile et élégante
-  font-family: 'Georgia', 'Times New Roman', Times, serif; // Police serif élégante
-  font-size: 2.2rem; // Augmentation de la taille de la police pour plus d'impact
-  font-weight: 400; // Poids de police régulier pour un look professionnel
-  margin-top: 20px;
-  margin-bottom: 20px; // Espace ajusté pour plus d'équilibre
-  text-align: center; // Centrer le texte pour un effet esthétique
-  padding: 0 10%; // Padding responsive
-  letter-spacing: 0.05em; // Espacement des lettres pour plus de lisibilité
-
-  @media (max-width: 768px) {
-    margin-top: 10px;
-    margin-bottom: 10px; // Espacement réduit en vue mobile
-    font-size: 1.8rem; // Taille de police ajustée pour mobile
-  }
+  color: #333;
+  font-family: 'Scriptina'; // Utilisation de la police Scriptina
+  font-size: 2rem;
+  font-weight: 400;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 0 10%;
 `;
 
 export default Accueil;
