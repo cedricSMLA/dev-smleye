@@ -78,14 +78,20 @@ const TextOnCarousel = styled.div`
 `;
 
 const TextBelow = styled.h2`
-  color: #666;
-  font-size: 1.5rem;
+  color: #333; // Couleur plus subtile et élégante
+  font-family: 'Georgia', 'Times New Roman', Times, serif; // Police serif élégante
+  font-size: 2.2rem; // Augmentation de la taille de la police pour plus d'impact
+  font-weight: 400; // Poids de police régulier pour un look professionnel
   margin-top: 20px;
-  margin-bottom: 10px;
-  padding: 0 10%; // Responsive padding
+  margin-bottom: 20px; // Espace ajusté pour plus d'équilibre
+  text-align: center; // Centrer le texte pour un effet esthétique
+  padding: 0 10%; // Padding responsive
+  letter-spacing: 0.05em; // Espacement des lettres pour plus de lisibilité
+
   @media (max-width: 768px) {
     margin-top: 10px;
-    margin-bottom: 5px; // Reduced space in mobile view
+    margin-bottom: 10px; // Espacement réduit en vue mobile
+    font-size: 1.8rem; // Taille de police ajustée pour mobile
   }
 `;
 
