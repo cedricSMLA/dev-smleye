@@ -13,39 +13,40 @@ const Accueil = () => {
       initial="hidden"
       animate="show"
     >
-      <PageWrapper>
-        <CarrouselWrapper>
+      <MainContainer>
+        <CarrouselSection>
           <CarrouselContainer>
             <CarrouselContent>
               <Carrousel />
-              <TextOnCarousel>
-                Immortalize the Moment
-              </TextOnCarousel>
+              <TextOnCarousel>Immortalize the Moment</TextOnCarousel>
             </CarrouselContent>
           </CarrouselContainer>
-        </CarrouselWrapper>
-        <TextBelow>
-          Discover a World of Visual Wonders
-        </TextBelow>
-      </PageWrapper>
-      <ImageGallery />
+        </CarrouselSection>
+        <QuoteSection>
+          <QuoteText>
+            <h1>Vidéaste & Photographe en région Parisiennes</h1>
+            "Le mariage, c'est l'art de grandir ensemble tout en restant fidèle
+            à soi-même."
+          </QuoteText>
+        </QuoteSection>
+        <ImageGallerySection>
+          <ImageGallery />
+        </ImageGallerySection>
+      </MainContainer>
     </motion.div>
   );
 };
 
-const PageWrapper = styled.div`
+const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
-  padding: 5px;
-  min-height: 100vh;
-  background-color: transparent;
+  background-color: #f5f5f5;
 `;
 
-const CarrouselWrapper = styled.div`
+const CarrouselSection = styled.section`
   width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
   overflow: hidden;
 `;
 
@@ -68,27 +69,53 @@ const CarrouselContent = styled.div`
 
 const TextOnCarousel = styled.div`
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 5rem;
-  //font-weight: 600;
+  font-size: 4rem;
   text-align: center;
-  padding: 15px 25px;
-  background: rgba(0, 0, 0, 0.0); // Fond transparent
-  font-family: 'Scriptina'; // Utilisation de la police Scriptina
+  //background: rgba(0, 0, 0, 0.5); // Semi-transparent background
+  padding: 20px 30px;
+  font-family: "Scriptina"; // Use of Scriptina font
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    padding: 10px 15px;
+  }
 `;
 
-const TextBelow = styled.h2`
+const QuoteSection = styled.section`
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  text-align: center;
+`;
+
+const QuoteText = styled.h2`
   color: #333;
-  font-family: 'Scriptina'; // Utilisation de la police Scriptina
+  font-family: "Scriptina"; // Use of Scriptina font
   font-size: 2rem;
   font-weight: 400;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
-  padding: 0 10%;
+  margin: 30px 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+`;
+
+const ImageGallerySection = styled.section`
+  width: 100%;
+  padding: 20px;
+  background-color: #f5f5f5;
 `;
 
 export default Accueil;
