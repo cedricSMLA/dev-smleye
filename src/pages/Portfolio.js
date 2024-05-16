@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import pierre from "../img/Mariages/clemence_pierre/A7402467.jpg";
 import merrick from "../img/Portraits/Merrick/A7400434-2.jpg";
 import mayotte from "../img/DJI_0087.jpg";
+import cdo1 from "../img/Clip/A7406627.jpg";
+import amira1 from "../img/Mariages/amira_sofiane/A7405093.jpg";
 //Animations
 import { motion } from "framer-motion";
 import {
@@ -21,6 +23,8 @@ import ScrollTop from "../components/ScrollTop";
 const Portfolio = () => {
   const [element, controls] = useScroll();
   const [element2, controls2] = useScroll();
+  const [element3, controls3] = useScroll();
+  const [element4, controls4] = useScroll();
   return (
     <PortfolioCss
       style={{ background: "#fff" }}
@@ -42,6 +46,32 @@ const Portfolio = () => {
           <Hide>
             <motion.img variants={photoAnim} src={pierre} alt="athlete" />
           </Hide>
+        </Link>
+      </Movie>
+
+      <Movie
+        ref={element3}
+        variants={fade}
+        animate={controls3}
+        initial="hidden"
+      >
+        <h2>Loubard Starr</h2>
+        <motion.div variants={lineAnim} className="line"></motion.div>
+        <Link to="/portfolio/cdo">
+          <img src={cdo1} alt="goodtimes" />
+        </Link>
+      </Movie>
+
+      <Movie
+        ref={element4}
+        variants={fade}
+        animate={controls4}
+        initial="hidden"
+      >
+        <h2>Amira & Sofiane</h2>
+        <motion.div variants={lineAnim} className="line"></motion.div>
+        <Link to="/portfolio/cdo">
+          <img src={amira1} alt="goodtimes" />
         </Link>
       </Movie>
 
@@ -104,7 +134,7 @@ const Hide = styled.div`
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 10%;
+  top: 0%;
   width: 100%;
   height: 100vh;
   background: #fffebf;
