@@ -6,10 +6,12 @@ import { MovieState } from "../movieState";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 
+import YouTube from "react-youtube"; // Import the YouTube component
+
 const MovieDetail = () => {
   const location = useLocation(); // Utilisez useLocation pour obtenir l'objet location
   const url = location.pathname; // Accédez à pathname pour obtenir l'URL actuelle
-  const [movies, setMovies] = useState(MovieState); 
+  const [movies, setMovies] = useState(MovieState);
   const [movie, setMovie] = useState(null);
 
   //UseEffect
@@ -42,7 +44,18 @@ const MovieDetail = () => {
             ))}
           </Awards>
           <ImageDisplay>
-            <img src={movie.secondaryImg} alt="movie" />
+            {movie.isVideo ? (
+              <video
+                src={movie.secondaryImg}
+                autoPlay
+                muted
+                loop
+                controls
+                style={{ width: "100%", height: "100%" }}
+              />
+            ) : (
+              <img src={movie.secondaryImg} alt="movie" />
+            )}
           </ImageDisplay>
         </Details>
       )}

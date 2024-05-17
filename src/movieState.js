@@ -1,18 +1,19 @@
 //Import Images
-import athlete from "./img/athlete-small.png";
+import clemence_pierre_1 from "./img/Mariages/clemence_pierre/A7402291.jpg";
 import goodtimes from "./img/goodtimes-small.png";
 import theracer from "./img/theracer-small.png";
-import athlete2 from "./img/athlete2.png";
 import goodtimes2 from "./img/good-times2.jpg";
 import theracer2 from "./img/the-racer2.jpg";
 
 export const MovieState = () => {
   return [
     {
-      title: "The Athlete",
-      mainImg: athlete,
-      secondaryImg: athlete2,
-      url: "/portfolio/the-athlete",
+      title: "Clémence & Pierre",
+      mainImg: clemence_pierre_1,
+      secondaryImg:
+        "https://www.dropbox.com/scl/fi/n478tyzo9uh2make49mqm/teaser_1920_1080-Copier-01.mp4?rlkey=9npvniijwf7p59yfokld2ue66&st=a6ra9gci&dl=1", // YouTube video ID
+      isVideo: true, // Indicates that this is a video
+      url: "/portfolio/clemence_pierre",
       awards: [
         {
           title: "Truly A masterpiece",

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //Images
 import pierre from "../img/Mariages/clemence_pierre/A7402467.jpg";
 import merrick from "../img/Portraits/Merrick/A7400434-2.jpg";
-import mayotte from "../img/DJI_0087.jpg";
+import mayotte from "../img/Mayotte/DJI_0087.jpg";
 import cdo1 from "../img/Clip/A7406627.jpg";
 import amira1 from "../img/Mariages/amira_sofiane/A7405093.jpg";
 //Animations
@@ -42,9 +42,13 @@ const Portfolio = () => {
       <Movie>
         <motion.h2 variants={fade}>Clémence & Pierre</motion.h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/portfolio/the-athlete">
+        <Link to="/portfolio/clemence_pierre">
           <Hide>
-            <motion.img variants={photoAnim} src={pierre} alt="athlete" />
+            <motion.img
+              variants={photoAnim}
+              src={pierre}
+              alt="clemence_pierre"
+            />
           </Hide>
         </Link>
       </Movie>
