@@ -1,9 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 import Carrousel from "../components/Carrousel";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 import ImageGallery from "../components/ImageGallery";
+import { createGlobalStyle, styled } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+`;
 
 const Accueil = () => {
   return (
@@ -77,8 +81,10 @@ const TextOnCarousel = styled.div`
   text-align: center;
   //background: rgba(0, 0, 0, 0.5); // Semi-transparent background
   padding: 20px 30px;
-  font-family: "Scriptina"; // Use of Scriptina font
-
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+    
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
@@ -98,7 +104,7 @@ const QuoteSection = styled.section`
 
 const QuoteText = styled.h2`
   color: #333;
-  font-family: "Scriptina"; // Use of Scriptina font
+  font-family: 'Nunito', sans-serif;
   font-size: 2rem;
   font-weight: 400;
   margin: 30px 0;

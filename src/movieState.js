@@ -16,19 +16,20 @@ export const MovieState = () => {
       url: "/portfolio/clemence_pierre",
       awards: [
         {
-          title: "Truly A masterpiece",
+          title: "Un mariage inoubliable",
           description:
-            "“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”",
+            "“Le début d'une belle histoire d'amour éternelle.”",
         },
         {
-          title: "Fresh look on a brutal sport.",
+          title: "Un jour magique",
           description:
-            "“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”",
+            "“Un mariage célébré avec grâce et élégance.”",
         },
+        
         {
-          title: "It’s okay lmao.",
+          title: "Un moment de pure magie",
           description:
-            "“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”",
+            "“Chaque moment était empreint d'amour et de bonheur.”",
         },
       ],
     },
