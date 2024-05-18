@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-
 import styled from "styled-components";
-//import { motion } from "framer-motion";
-//import { pageAnimation } from "../animation";
-// import des images
-import Img1 from "../img/img1.jpeg";
-import Img2 from "../img/img2.jpeg";
-import Img3 from "../img/img3.jpeg";
-import Img4 from "../img/img4.jpeg";
-import Img5 from "../img/img5.jpeg";
-import Img6 from "../img/img6.jpeg";
-import Img7 from "../img/img7.jpeg";
-import Img8 from "../img/img8.jpeg";
-import Img9 from "../img/img9.jpeg";
-import Img10 from "../img/img10.jpeg";
+
+// URLs des images Dropbox
+const Img1 = "https://www.dropbox.com/scl/fi/nusoo0w0me23x9ag5lne8/A7403305.jpg?rlkey=m40m4rv4etk4pyh86mhbaav7b&st=89h5qw4z&dl=1";
+const Img2 = "https://www.dropbox.com/scl/fi/dhi1esq1hjh5l3abv51wf/A7404960.jpg?rlkey=js14nsaedrlasdxwullmg7ml3&st=zdq6c3ee&dl=1";
+const Img3 = "https://www.dropbox.com/scl/fi/w00e2el6yg0ur0lysq663/P1311426-2.jpg?rlkey=mlv1y99pmzfb6uslpyl0yo9ph&st=vvor1lgq&dl=1";
+const Img4 = "https://www.dropbox.com/scl/fi/bosvz74drjqq1b58g85pw/A7403268.jpg?rlkey=rogfmrlso9j0p21oq6vob1d75&st=mxx58nux&dl=1";
+const Img5 = "https://www.dropbox.com/scl/fi/72ggxe7jnmysruqhfrib5/P1015079.jpg?rlkey=fa0aqdhx4rm8krikj3s89u5yx&st=9p1gaf7g&dl=1";
+const Img6 = "https://www.dropbox.com/scl/fi/fe2zjlxn4aagk8r106ndy/result_13542s2-Modifier-Modifier-2.jpg?rlkey=cbqbyyfqcrjwut90fpyplauhr&st=bp4i5253&dl=1";
+const Img7 = "https://www.dropbox.com/scl/fi/1qtpbdy4xpc9gfnkybipd/DJI_0712.jpg?rlkey=37h5n1rlqq6a2fq2078he4jpt&st=l9masdfu&dl=1";
+const Img8 = "https://www.dropbox.com/scl/fi/bvzdtjnbatmbqrk1xgq8o/P1070097.jpg?rlkey=48hhj2v23dzcpmocfko2vze9j&st=mnji1xc1&dl=1";
+const Img9 = "https://www.dropbox.com/scl/fi/00jr3fxadqy8caowqvhi5/result_6407s2-Modifier-3.jpg?rlkey=zkg9xec72xm2knd3rwche213u&st=iv7lmo02&dl=1";
+const Img10 = "https://www.dropbox.com/scl/fi/tx5r78ok9q0ryafxt1jh4/A7405964.jpg?rlkey=xsonua4l404tbnzt6yv4rv5e5&st=57nhg95e&dl=1";
 
 const ImageGallery = () => {
   let data = [
@@ -66,6 +64,7 @@ const ImageGallery = () => {
     SetTempImgSrc(imgSrc);
     setModel(true);
   };
+
   return (
     <>
       <ModelContainer className={model ? "model open" : "model"}>
@@ -85,50 +84,46 @@ const ImageGallery = () => {
   );
 };
 
-// Styled component pour le conteneur de la galerie
 const GalleryWrapper = styled.div`
-  text-align: center; // Centre le contenu textuellement et visuellement
-  -webkit-column-count: 3; // Définit le nombre de colonnes pour Chrome, Safari
-  -moz-column-count: 3; // Définit le nombre de colonnes pour Firefox
-  column-count: 3; // Définit le nombre de colonnes standard
-  -webkit-column-width: 33%; // Largeur de chaque colonne pour Chrome, Safari
-  -moz-column-width: 33%; // Largeur de chaque colonne pour Firefox
-  column-width: 33%; // Largeur de chaque colonne standard
-  padding: 0 12px; // Ajoute un padding horizontal pour éviter que le contenu touche les bords
+  text-align: center;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-width: 33%;
+  -moz-column-width: 33%;
+  column-width: 33%;
+  padding: 0 12px;
 
-  // Règles pour les écrans dont la largeur maximale est 991px
   @media (max-width: 991px) {
-    -webkit-column-count: 2; // 2 colonnes pour Chrome, Safari
-    -moz-column-count: 2; // 2 colonnes pour Firefox
-    column-count: 2; // 2 colonnes standard
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
   }
 
-  // Règles pour les écrans dont la largeur maximale est 480px
   @media (max-width: 480px) {
-    -webkit-column-count: 1; // 1 colonne pour Chrome, Safari
-    -moz-column-count: 1; // 1 colonne pour Firefox
-    column-count: 1; // 1 colonne standard
-    -webkit-column-width: 100%; // Largeur de colonne à 100% pour Chrome, Safari
-    -moz-column-width: 100%; // Largeur de colonne à 100% pour Firefox
-    column-width: 100%; // Largeur de colonne à 100% standard
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-width: 100%;
+    -moz-column-width: 100%;
+    column-width: 100%;
   }
 `;
 
-// Styled component pour le conteneur d'une image
 const PictureContainer = styled.div`
-  -webkit-transition: all 350ms ease; // Transition fluide pour toutes les propriétés sur Chrome, Safari
-  transition: all 350ms ease; // Transition fluide pour toutes les propriétés standard
-  cursor: pointer; // Le curseur devient un pointeur pour indiquer la cliquabilité
-  margin-bottom: 12px; // Espacement en bas de chaque conteneur d'image
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  cursor: pointer;
+  margin-bottom: 12px;
 
   img {
-    width: 100%; // L'image prend toute la largeur du conteneur
-    height: auto; // La hauteur s'ajuste automatiquement pour maintenir le ratio d'aspect de l'image
+    width: 100%;
+    height: auto;
     border-radius: 20px;
   }
 
   &:hover {
-    opacity: 0.8; // Réduit l'opacité de l'image au survol pour un effet visuel
+    opacity: 0.8;
   }
 `;
 
@@ -142,8 +137,7 @@ const ModelContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #000000;
-  transition: opacity 0.45s ease, visibility 0.45s ease,
-    transform 0.5s ease-in-out;
+  transition: opacity 0.45s ease, visibility 0.45s ease, transform 0.5s ease-in-out;
   visibility: hidden;
   opacity: 0;
   transform: scale(0);

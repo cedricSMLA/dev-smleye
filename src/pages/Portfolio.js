@@ -82,8 +82,8 @@ const Portfolio = () => {
       <Movie ref={element} variants={fade} animate={controls} initial="hidden">
         <h2>Merrick</h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/portfolio/the-racer">
-          <img src={merrick} alt="theracer" />
+        <Link to="/portfolio/merrick">
+          <img src={merrick} alt="merrick" />
         </Link>
       </Movie>
 
