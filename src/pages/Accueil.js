@@ -29,7 +29,7 @@ const Accueil = () => {
           <CarrouselContainer>
             <CarrouselContent>
               <Carrousel />
-              <TextOnCarousel>Immortalize the Moment</TextOnCarousel>
+              <TextOnCarousel>L’art de voir autrement</TextOnCarousel>
             </CarrouselContent>
           </CarrouselContainer>
         </CarrouselSection>
@@ -37,8 +37,10 @@ const Accueil = () => {
         <QuoteSection>
           <QuoteText>
             <h1>Vidéaste & Photographe en région Parisiennes</h1>
-            "Le mariage, c'est l'art de grandir ensemble tout en restant fidèle
-            à soi-même."
+            <p>
+              "Le mariage, c'est l'art de grandir ensemble tout en restant
+              fidèle à soi-même."
+            </p>
           </QuoteText>
           <CardContainer>
             <Card1
@@ -79,7 +81,7 @@ const CarrouselSection = styled.section`
 const CarrouselContainer = styled.div`
   width: 100%;
   height: 0;
-  padding-top: 56.25%; // Maintains a 16:9 aspect ratio
+  padding-top: 45%; // Maintains a 16:9 aspect ratio
   position: relative;
 `;
 
