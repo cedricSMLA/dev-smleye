@@ -6,8 +6,6 @@ import { MovieState } from "../movieState";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 
-import YouTube from "react-youtube"; // Import the YouTube component
-
 const MovieDetail = () => {
   const location = useLocation(); // Utilisez useLocation pour obtenir l'objet location
   const url = location.pathname; // Accédez à pathname pour obtenir l'URL actuelle

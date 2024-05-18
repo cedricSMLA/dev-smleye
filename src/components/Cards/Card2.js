@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import styled from "styled-components";
 
-const Card = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Card2 = ({ isOpen, onClick }) => {
   return (
     <CardContainer
       transition={{ layout: { duration: 1, type: "spring" } }}
       layout
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={onClick}
       className="card"
+      isOpen={isOpen}
       style={{
         borderRadius: "1rem",
         boxShadow: "0px 10px 30px rgba(0,0,0, 0.5)",
@@ -37,18 +36,14 @@ const Card = () => {
 };
 
 const CardContainer = styled(motion.div)`
-  background: black;
+  background: gray;
   padding: 3rem 5rem;
   font-family: sans-serif;
-
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
 `;
+
 const CardContent = styled(motion.div)`
   padding-top: 1rem;
   line-height: 150%;
-  width: 35rem;
 `;
 
-export default Card;
+export default Card2;

@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Carrousel from "../components/Carrousel";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 import ImageGallery from "../components/ImageGallery";
-import { createGlobalStyle, styled } from 'styled-components';
+import { styled } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-`;
+// import Cards
+import Card1 from "../components/Cards/Card1";
+import Card2 from "../components/Cards/Card2";
+import Card3 from "../components/Cards/Card3";
 
 const Accueil = () => {
+  const [openCardIndex, setOpenCardIndex] = useState(null);
+
+  const handleCardClick = (index) => {
+    setOpenCardIndex(openCardIndex === index ? null : index);
+  };
+
   return (
     <motion.div
       exit="exit"
@@ -26,12 +33,27 @@ const Accueil = () => {
             </CarrouselContent>
           </CarrouselContainer>
         </CarrouselSection>
+
         <QuoteSection>
           <QuoteText>
             <h1>Vidéaste & Photographe en région Parisiennes</h1>
             "Le mariage, c'est l'art de grandir ensemble tout en restant fidèle
             à soi-même."
           </QuoteText>
+          <CardContainer>
+            <Card1
+              isOpen={openCardIndex === 0}
+              onClick={() => handleCardClick(0)}
+            />
+            <Card2
+              isOpen={openCardIndex === 1}
+              onClick={() => handleCardClick(1)}
+            />
+            <Card3
+              isOpen={openCardIndex === 2}
+              onClick={() => handleCardClick(2)}
+            />
+          </CardContainer>
         </QuoteSection>
         <ImageGallerySection>
           <ImageGallery />
@@ -84,7 +106,7 @@ const TextOnCarousel = styled.div`
   font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
-    
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
@@ -104,7 +126,7 @@ const QuoteSection = styled.section`
 
 const QuoteText = styled.h2`
   color: #333;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 2rem;
   font-weight: 400;
   margin: 30px 0;
@@ -116,6 +138,12 @@ const QuoteText = styled.h2`
   @media (max-width: 480px) {
     font-size: 1.2rem;
   }
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 `;
 
 const ImageGallerySection = styled.section`

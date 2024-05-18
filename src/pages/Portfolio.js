@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 //Images
 import pierre from "../img/Mariages/clemence_pierre/A7402467.jpg";
-import merrick from "../img/Portraits/Merrick/A7400434-2.jpg";
-import mayotte from "../img/Mayotte/DJI_0087.jpg";
+import merrick from "../img/Portraits/Merrick/A7405747.jpg";
+import mayotte from "../img/Mayotte/DJI_0484-2.jpg";
 import cdo1 from "../img/Clip/A7406627.jpg";
 import amira1 from "../img/Mariages/amira_sofiane/A7405093.jpg";
 //Animations
@@ -93,7 +93,7 @@ const Portfolio = () => {
         animate={controls2}
         initial="hidden"
       >
-        <h2>mayotte</h2>
+        <h2>Mayotte</h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/portfolio/good-times">
           <img src={mayotte} alt="goodtimes" />
@@ -114,6 +114,9 @@ const PortfolioCss = styled(motion.div)`
 
   h2 {
     padding: 1rem 0rem;
+    text-align: center;
+    font-family: "Mulish", sans-serif;
+    font-weight: 0;
   }
 `;
 const Movie = styled(motion.div)`
@@ -126,7 +129,8 @@ const Movie = styled(motion.div)`
   }
   img {
     width: 100%;
-    height: 70vh;
+    height: auto;
+    aspect-ratio: 16/9; // Ajustez ce ratio en fonction de vos besoins
     object-fit: cover;
   }
 `;
@@ -134,7 +138,7 @@ const Hide = styled.div`
   overflow: hidden;
 `;
 
-//Frame Animation
+// Frame Animation
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;

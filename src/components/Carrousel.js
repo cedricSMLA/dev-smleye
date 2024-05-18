@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import styled from "styled-components";
 
 // Import des images
-import portrait1 from "../img/A7409422.jpg"; // Ajuste le chemin en fonction de ton dossier
 import portrait2 from "../img/P1060929-3.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,9 +21,6 @@ const Carousel = () => {
   return (
     <CarouselContainer>
       <StyledSlider {...settings}>
-        <div>
-          <CarouselImage src={portrait1} alt="Description de l'image 1" />
-        </div>
         <div>
           <CarouselImage src={portrait2} alt="Description de l'image 2" />
         </div>

@@ -22,7 +22,7 @@ const ServicesSection = () => {
     >
       <Description>
         <h2>
-          <span>L'excellence</span>  à chaque instant
+          <span>L'excellence</span> à chaque instant
         </h2>
         <Cards>
           <Card>
@@ -37,21 +37,27 @@ const ServicesSection = () => {
               <img alt="icon" src={teamwork} />
               <h3>Travail d'équipe</h3>
             </div>
-            <p>Chaque émotion capturée, <span>ensemble.</span></p>
+            <p>
+              Chaque émotion capturée, <span>ensemble.</span>
+            </p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={diaphragm} />
               <h3>Creativité</h3>
             </div>
-            <p>Des images <span>uniques</span> qui racontent votre histoire.</p>
+            <p>
+              Des images <span>uniques</span> qui racontent votre histoire.
+            </p>
           </Card>
           <Card>
             <div className="icon">
               <img alt="icon" src={money} />
               <h3>Abordable</h3>
             </div>
-            <p>Des souvenirs précieux à des prix <span>accessibles</span>.</p>
+            <p>
+              Des souvenirs précieux à des prix <span>accessibles</span>.
+            </p>
           </Card>
         </Cards>
       </Description>
@@ -64,6 +70,14 @@ const ServicesSection = () => {
 
 const StyledImage = styled.img`
   border-radius: 15px; // Adjust the value to get the desired roundness
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+  @media (max-width: 768px) {
+    display: block;
+    margin: 0 65px; // Centre l'image horizontalement
+  }
 `;
 
 const Services = styled(About)`
