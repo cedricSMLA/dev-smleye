@@ -37,6 +37,7 @@ const Card1 = ({ isOpen, onClick }) => {
 
 const CardContainer = styled(motion.div)`
   background: gray;
+  width: 100px;
   width: 500px;
   padding: 3rem 5rem;
   font-family: sans-serif;
