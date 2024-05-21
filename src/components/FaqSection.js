@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { About } from "../styles";
 import Toggle from "./Toggle";
@@ -8,6 +8,12 @@ import { scrollReveal } from "../animation";
 
 const FaqSection = () => {
   const [element, controls] = useScroll();
+  const [activeToggle, setActiveToggle] = useState(null);
+
+  const handleToggle = (title) => {
+    setActiveToggle(activeToggle === title ? null : title);
+  };
+
   return (
     <Faq
       variants={scrollReveal}
@@ -20,7 +26,11 @@ const FaqSection = () => {
       </h2>
       <AnimatePresence>
         <motion.div layout>
-          <Toggle title="Quels types de services photos et vidéos je propose ?">
+          <Toggle
+            title="Quels types de services photos et vidéos je propose ?"
+            activeToggle={activeToggle}
+            handleToggle={handleToggle}
+          >
             <div className="answer">
               <p>
                 Je couvre votre mariage en vidéo et/ou photo, vos clips musicaux, je vous propose des portraits photos et vidéos,
@@ -28,7 +38,11 @@ const FaqSection = () => {
               </p>
             </div>
           </Toggle>
-          <Toggle title="Comment réserver une prestation ?">
+          <Toggle
+            title="Comment réserver une prestation ?"
+            activeToggle={activeToggle}
+            handleToggle={handleToggle}
+          >
             <div className="answer">
               <p>
                 Contactez-moi via le formulaire de contact sur le site, par
@@ -36,7 +50,11 @@ const FaqSection = () => {
               </p>
             </div>
           </Toggle>
-          <Toggle title="Quels sont les tarifs pour les différents types de prestations ?">
+          <Toggle
+            title="Quels sont les tarifs pour les différents types de prestations ?"
+            activeToggle={activeToggle}
+            handleToggle={handleToggle}
+          >
             <div className="answer">
               <p>
                 Les tarifs varient selon le type de prestation; veuillez me
@@ -44,7 +62,11 @@ const FaqSection = () => {
               </p>
             </div>
           </Toggle>
-          <Toggle title="Comment et quand puis-je m'attendre à recevoir mes photos ou vidéos finales ?">
+          <Toggle
+            title="Comment et quand puis-je m'attendre à recevoir mes photos ou vidéos finales ?"
+            activeToggle={activeToggle}
+            handleToggle={handleToggle}
+          >
             <div className="answer">
               <p>
                 Les photos et vidéos finales sont généralement livrées sous 2 à
