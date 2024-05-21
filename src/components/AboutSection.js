@@ -60,12 +60,19 @@ const AboutSection = () => {
 };
 
 const StyledImage = styled(Image)`
+  position: relative;
+  top: -140px; // Adjust this value to move the image higher
+
+  @media (max-width: 768px) {
+    top: 0; // Reset the top position on smaller screens
+  }
+
   img {
     width: 100%;
     height: auto;
     object-fit: cover;
     object-position: top;
-    border-radius: 1.5rem;
+    border-radius: 10rem;
 
     @media (max-width: 768px) {
       display: block;

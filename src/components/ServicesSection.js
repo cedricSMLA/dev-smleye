@@ -72,8 +72,9 @@ const StyledImage = styled.img`
   border-radius: 15px; // Adjust the value to get the desired roundness
   width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: top;
+  //object-fit: contain;
+  //object-position: top;
+  margin-left:150px;
   @media (max-width: 768px) {
     display: block;
     margin: 0 65px; // Centre l'image horizontalement
