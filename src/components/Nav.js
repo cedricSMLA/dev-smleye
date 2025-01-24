@@ -11,7 +11,7 @@ const Nav = () => {
   const { pathname } = useLocation();
   const [hideOnScroll, setHideOnScroll] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -34,49 +34,53 @@ const Nav = () => {
   return (
     <StyledNav style={{ top: hideOnScroll ? "-100%" : "0" }}>
       <ProgressBar style={{ width: `${scrollProgress}%` }} />
-      <h1>
-        <Link id="logo" to="/">
-          <img
-            src={logo_smleye}
-            alt="Logo1"
-            style={{ height: "75px", borderRadius: "1rem" }}
-          />
-        </Link>
-      </h1>
-      <ul>
-        <li>
+      <LogoContainer>
+        <h1>
+          <Link id="logo" to="/portfolio">
+            <img
+              src={logo_smleye}
+              alt="Logo1"
+              style={{ height: "75px", borderRadius: "1rem" }}
+            />
+          </Link>
+        </h1>
+      </LogoContainer>
+      <ListContainer>
+        <ul>
+          {/*<li>
           <Link to="/">Accueil</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
             animate={{ width: pathname === "/" ? "50%" : "0%" }}
           />
-        </li>
-        <li>
+        </li>*/}
+          {/*<li>
           <Link to="/quisuisje">Qui suis-je</Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
             animate={{ width: pathname === "/quisuisje" ? "50%" : "0%" }}
           />
-        </li>
-        <li>
-          <Link to="/portfolio">Portfolio</Link>
-          <Line
-            transition={{ duration: 0.75 }}
-            initial={{ width: "0%" }}
-            animate={{ width: pathname === "/portfolio" ? "50%" : "0%" }}
-          />
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-          <Line
-            transition={{ duration: 0.75 }}
-            initial={{ width: "0%" }}
-            animate={{ width: pathname === "/contact" ? "50%" : "0%" }}
-          />
-        </li>
-      </ul>
+        </li>*/}
+          <li>
+            <Link to="/portfolio">Portfolio</Link>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: pathname === "/portfolio" ? "50%" : "0%" }}
+            />
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: pathname === "/contact" ? "50%" : "0%" }}
+            />
+          </li>
+        </ul>
+      </ListContainer>
     </StyledNav>
   );
 };
@@ -100,6 +104,8 @@ const StyledNav = styled.nav`
   ul {
     display: flex;
     list-style: none;
+    justify-content: center; /* Permet de centrer horizontalement les éléments */
+    padding: 0; /* Supprime les marges/paddings par défaut */
   }
   #logo {
     //font-size: 1.5rem;
@@ -114,16 +120,21 @@ const StyledNav = styled.nav`
   @media (max-width: 1300px) {
     flex-direction: column;
     padding: 2rem 1rem;
+
     #logo {
       display: inline-block;
       margin: 1rem;
     }
     ul {
-      padding: 2rem;
-      justify-content: space-around;
-      width: 100%;
+      //padding: 2rem 0;
+      //justify-content: space-around;
+      //width: 100%;
+      display: flex; /* Assure une disposition en ligne */
+      justify-content: center; /* Centre les liens horizontalement */
+      gap: 1rem; /* Ajoute un espacement horizontal entre les liens */
       li {
         padding: 0;
+        margin: 0;
       }
     }
   }
@@ -150,5 +161,9 @@ const ProgressBar = styled.div`
   z-index: 20;
   transition: width 0.2s ease-in-out;
 `;
+
+const LogoContainer = styled(motion.div)``;
+
+const ListContainer = styled(motion.div)``;
 
 export default Nav;

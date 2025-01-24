@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import LabelField from "../components/LabelField";
 import ConfirmationOverlay from "../components/ConfirmationOverlays";
-import { validateForm } from "../utils/validation";
 import {
   FormContainer,
   Input,
@@ -13,6 +12,58 @@ import {
   Button,
   ErrorMessage,
 } from "../styles/formStyles";
+
+const API_URL =
+  process.env.REACT_APP_API_URL || "http://localhost:3001/submit-form";
+
+// Fonction de validation du formulaire
+const validateForm = (formData) => {
+  const errors = {};
+
+  // Validation du champ "Nom"
+  if (!formData.lastName.trim()) {
+    errors.lastName = "Le nom est requis.";
+  }
+
+  // Validation du champ "Email"
+  if (!formData.email.trim()) {
+    errors.email = "L'email est requis.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    errors.email = "L'email n'est pas valide.";
+  }
+
+  // Validation du champ "Téléphone"
+  if (formData.phone && !/^\d+$/.test(formData.phone)) {
+    errors.phone =
+      "Le numéro de téléphone doit contenir uniquement des chiffres.";
+  }
+
+  // Validation du champ "Date"
+  if (!formData.date) {
+    errors.date = "La date est requise.";
+  } else if (new Date(formData.date) < new Date()) {
+    errors.date = "La date ne peut pas être dans le passé.";
+  }
+
+  // Validation du champ "Lieu"
+  if (!formData.lieu.trim()) {
+    errors.lieu = "Le lieu est requis.";
+  }
+
+  // Validation du champ "Type de service"
+  if (!formData.serviceType) {
+    errors.serviceType = "Le type de service est requis.";
+  }
+
+  // Validation du champ "Message"
+  if (!formData.message.trim()) {
+    errors.message = "Le message est requis.";
+  } else if (formData.message.length > 700) {
+    errors.message = "Le message ne doit pas dépasser 700 caractères.";
+  }
+
+  return errors;
+};
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -29,14 +80,14 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [countdown, setCountdown] = useState(5);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
-  };
+  }, []);
 
-  const handleDateChange = (date) => {
+  const handleDateChange = useCallback((date) => {
     setFormData((prevState) => ({ ...prevState, date }));
-  };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,13 +103,18 @@ const Contact = () => {
       date: formData.date ? formData.date.toISOString() : "",
     };
 
-    fetch("http://localhost:3001/submit-form", {
+    fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSend),
     })
-      .then((response) => response.json())
-      .then((data) => {
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de l'envoi du formulaire.");
+        }
+        return response.json();
+      })
+      .then(() => {
         setSubmitted(true);
         const timer = setInterval(() => {
           setCountdown((prevCountdown) => prevCountdown - 1);
@@ -72,7 +128,10 @@ const Contact = () => {
           navigate("/portfolio");
         }, 5000);
       })
-      .catch((error) => console.error("Erreur:", error));
+      .catch((error) => {
+        console.error("Erreur:", error);
+        alert("Impossible d'envoyer le formulaire. Veuillez réessayer.");
+      });
   };
 
   const resetForm = () => {
@@ -167,7 +226,9 @@ const Contact = () => {
         <Textarea
           name="message"
           value={formData.message}
-          onChange={handleChange}
+          onChange={(e) => {
+            if (e.target.value.length <= 700) handleChange(e);
+          }}
           placeholder="N'hésitez pas à me donner un maximum de détails sur votre projet, cela m'aidera à vous répondre au mieux :)"
           required
           maxLength="700"
@@ -176,7 +237,12 @@ const Contact = () => {
         <div>{700 - formData.message.length} caractères restants</div>
       </LabelField>
       <Button type="submit">Envoyer</Button>
-      {submitted && <ConfirmationOverlay countdown={countdown} />}
+      {submitted && (
+        <ConfirmationOverlay countdown={countdown}>
+          Merci, {formData.lastName} ! Votre message a été envoyé avec succès.
+          Vous serez redirigé sous {countdown} secondes.
+        </ConfirmationOverlay>
+      )}
     </FormContainer>
   );
 };
