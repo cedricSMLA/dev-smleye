@@ -40,65 +40,27 @@ const Portfolio = () => {
         <Frame4 variants={slider}></Frame4>
       </motion.div>
       <Movie>
-        <motion.h2 variants={fade}>Clémence & Pierre</motion.h2>
+        <motion.h2 variants={fade}>Romane et Maxime</motion.h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/portfolio/clemence_pierre">
-          <Hide>
-            <motion.img
-              variants={photoAnim}
-              src={pierre}
-              alt="clemence_pierre"
-            />
-          </Hide>
-        </Link>
+        {/* Affichage direct de la vidéo Dropbox */}
+        <Hide>
+          <motion.video
+            variants={photoAnim}
+            src="https://www.dropbox.com/scl/fi/trz823jchnu6cbh56ulno/insta_finale_teaser.mp4?rlkey=oalwancimgriavblvbfb3e0u3&st=s42w7utb&dl=1"
+            controls
+            autoPlay
+            muted
+            loop
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: "8px",
+            }}
+          />
+        </Hide>
       </Movie>
 
-      <Movie
-        ref={element3}
-        variants={fade}
-        animate={controls3}
-        initial="hidden"
-      >
-        <h2>Loubard Starr</h2>
-        <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/portfolio/cdo">
-          <img src={cdo1} alt="goodtimes" />
-        </Link>
-      </Movie>
-
-      <Movie
-        ref={element4}
-        variants={fade}
-        animate={controls4}
-        initial="hidden"
-      >
-        <h2>Amira & Sofiane</h2>
-        <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/portfolio/cdo">
-          <img src={amira1} alt="goodtimes" />
-        </Link>
-      </Movie>
-
-      <Movie ref={element} variants={fade} animate={controls} initial="hidden">
-        <h2>Merrick</h2>
-        <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/portfolio/merrick">
-          <img src={merrick} alt="merrick" />
-        </Link>
-      </Movie>
-
-      <Movie
-        ref={element2}
-        variants={fade}
-        animate={controls2}
-        initial="hidden"
-      >
-        <h2>Mayotte</h2>
-        <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/portfolio/good-times">
-          <img src={mayotte} alt="goodtimes" />
-        </Link>
-      </Movie>
       <ScrollTop />
     </PortfolioCss>
   );

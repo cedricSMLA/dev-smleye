@@ -12,11 +12,10 @@ const MovieDetail = () => {
   const [movies, setMovies] = useState(MovieState);
   const [movie, setMovie] = useState(null);
 
-  //UseEffect
+  // UseEffect
   useEffect(() => {
     const currentMovie = movies.filter((stateMovie) => stateMovie.url === url);
     setMovie(currentMovie[0]);
-    console.log(setMovies);
   }, [movies, url]);
 
   return (
@@ -32,15 +31,6 @@ const MovieDetail = () => {
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="movie" />
           </HeadLine>
-          <Awards>
-            {movie.awards.map((award) => (
-              <Award
-                title={award.title}
-                description={award.description}
-                key={award.title}
-              />
-            ))}
-          </Awards>
           <ImageDisplay>
             {movie.isVideo ? (
               <video
@@ -80,32 +70,6 @@ const HeadLine = styled.div`
     object-fit: cover;
   }
 `;
-const Awards = styled.div`
-  min-height: 80vh;
-  display: flex;
-  margin: 5rem 10rem;
-  align-items: center;
-  justify-content: space-around;
-  @media (max-width: 1500px) {
-    display: block;
-    margin: 2rem 2rem;
-  }
-`;
-const AwardStyle = styled.div`
-  padding: 5rem;
-  h3 {
-    font-size: 2rem;
-  }
-  .line {
-    width: 100%;
-    background: #006aff;
-    height: 0.5rem;
-    margin: 1rem 0rem;
-  }
-  p {
-    padding: 2rem 0rem;
-  }
-`;
 const ImageDisplay = styled.div`
   min-height: 50vh;
   img {
@@ -114,16 +78,5 @@ const ImageDisplay = styled.div`
     object-fit: cover;
   }
 `;
-
-//Award Component
-const Award = ({ title, description }) => {
-  return (
-    <AwardStyle>
-      <h3>{title}</h3>
-      <div className="line"></div>
-      <p>{description}</p>
-    </AwardStyle>
-  );
-};
 
 export default MovieDetail;
